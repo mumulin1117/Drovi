@@ -10,5 +10,5 @@ pod "IQKeyboardManager"
 pod "SwiftyStoreKit"
 pod "SVProgressHUD"
 
-
+pod "SDWebImage"
 end

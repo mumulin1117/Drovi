@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="DovMsoundlabeCell" customModule="HiFiSpatBbo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="359" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="359" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kWB-rX-Dsg" userLabel="BelluserImage">
+                        <rect key="frame" x="15" y="15" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="TuT-tF-Y8f"/>
+                            <constraint firstAttribute="height" constant="60" id="ghC-Me-woH"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8s-ST-HP6">
+                        <rect key="frame" x="90" y="15" width="44" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJH-He-S3J">
+                        <rect key="frame" x="98" y="58" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cQ-Ih-LW0">
+                        <rect key="frame" x="312" y="37.666666666666664" width="31" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="7cQ-Ih-LW0" firstAttribute="centerY" secondItem="kWB-rX-Dsg" secondAttribute="centerY" id="7z9-4b-mHF"/>
+                    <constraint firstItem="vJH-He-S3J" firstAttribute="leading" secondItem="O8s-ST-HP6" secondAttribute="leading" id="98L-i4-o7P"/>
+                    <constraint firstItem="vJH-He-S3J" firstAttribute="bottom" secondItem="kWB-rX-Dsg" secondAttribute="bottom" id="Bpd-Oa-quD"/>
+                    <constraint firstItem="kWB-rX-Dsg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="D16-a1-iL5"/>
+                    <constraint firstAttribute="trailing" secondItem="7cQ-Ih-LW0" secondAttribute="trailing" constant="16" id="EEP-pH-5RS"/>
+                    <constraint firstItem="O8s-ST-HP6" firstAttribute="top" secondItem="kWB-rX-Dsg" secondAttribute="top" id="GIh-R7-899"/>
+                    <constraint firstItem="O8s-ST-HP6" firstAttribute="leading" secondItem="kWB-rX-Dsg" secondAttribute="trailing" constant="15" id="bux-vb-vZI"/>
+                    <constraint firstItem="kWB-rX-Dsg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="phf-58-3Jy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="BellUserImageci" destination="kWB-rX-Dsg" id="gUi-lf-fcF"/>
+                <outlet property="exhibitionLabel" destination="O8s-ST-HP6" id="B0o-LS-UG7"/>
+                <outlet property="webhookLabel" destination="vJH-He-S3J" id="Ive-6s-dxG"/>
+            </connections>
+            <point key="canvasLocation" x="168.70229007633588" y="36.619718309859159"/>
+        </tableViewCell>
+    </objects>
+</document>

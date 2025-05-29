@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DovEditorCell" customModule="HiFiSpatBbo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="109" height="87"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="109" height="87"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I9G-cj-O9B" userLabel="BelluserImage">
+                        <rect key="frame" x="26.666666666666671" y="0.0" width="56" height="56"/>
+                        <color key="backgroundColor" red="0.26274509800000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="ES6-5a-2Jc"/>
+                            <constraint firstAttribute="height" constant="56" id="tCP-zX-cnf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVT-gF-FEF">
+                        <rect key="frame" x="35.666666666666664" y="60" width="37.999999999999993" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="PVT-gF-FEF" firstAttribute="top" secondItem="I9G-cj-O9B" secondAttribute="bottom" constant="4" id="gnJ-Ec-RJG"/>
+                <constraint firstItem="PVT-gF-FEF" firstAttribute="centerX" secondItem="I9G-cj-O9B" secondAttribute="centerX" id="qzJ-qv-jR1"/>
+                <constraint firstItem="I9G-cj-O9B" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rTa-XA-ZWt"/>
+                <constraint firstItem="I9G-cj-O9B" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="xqq-lF-n2v"/>
+            </constraints>
+            <size key="customSize" width="109" height="87"/>
+            <connections>
+                <outlet property="BellUserImageci" destination="I9G-cj-O9B" id="A5j-4x-DXN"/>
+                <outlet property="exhibitionLabel" destination="PVT-gF-FEF" id="NAc-uq-oX6"/>
+            </connections>
+            <point key="canvasLocation" x="-109.16030534351144" y="0.35211267605633806"/>
+        </collectionViewCell>
+    </objects>
+</document>
