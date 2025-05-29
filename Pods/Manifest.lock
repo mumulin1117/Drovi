@@ -1,0 +1,26 @@
+PODS:
+  - IQKeyboardManager (6.5.19)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
+  - SwiftyStoreKit (0.16.1)
+
+DEPENDENCIES:
+  - IQKeyboardManager
+  - SVProgressHUD
+  - SwiftyStoreKit
+
+SPEC REPOS:
+  trunk:
+    - IQKeyboardManager
+    - SVProgressHUD
+    - SwiftyStoreKit
+
+SPEC CHECKSUMS:
+  IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
+  SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
+
+PODFILE CHECKSUM: 794b31fd822de061cb8fef656fb1014c6180dbb0
+
+COCOAPODS: 1.16.2
