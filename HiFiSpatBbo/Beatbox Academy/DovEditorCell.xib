@@ -26,8 +26,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVT-gF-FEF">
-                        <rect key="frame" x="35.666666666666664" y="60" width="37.999999999999993" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="3" y="59.999999999999993" width="103" height="15.666666666666664"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -35,9 +35,11 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="PVT-gF-FEF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="Ukh-uZ-Cwu"/>
                 <constraint firstItem="PVT-gF-FEF" firstAttribute="top" secondItem="I9G-cj-O9B" secondAttribute="bottom" constant="4" id="gnJ-Ec-RJG"/>
                 <constraint firstItem="PVT-gF-FEF" firstAttribute="centerX" secondItem="I9G-cj-O9B" secondAttribute="centerX" id="qzJ-qv-jR1"/>
                 <constraint firstItem="I9G-cj-O9B" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rTa-XA-ZWt"/>
+                <constraint firstAttribute="trailing" secondItem="PVT-gF-FEF" secondAttribute="trailing" constant="3" id="veb-8G-T0q"/>
                 <constraint firstItem="I9G-cj-O9B" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="xqq-lF-n2v"/>
             </constraints>
             <size key="customSize" width="109" height="87"/>

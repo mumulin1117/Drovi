@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  HiFiSpatBbo
 //
-//  Created by mumu on 2025/5/27.
+//  Created by HiFiSpatBbo on 2025/5/27.
 //
 
 import UIKit
@@ -22,3 +22,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+
+class SjuiTAbar:UITabBarController{
+    private(set) var previousSelectedIndex: Int = 0
+        
+    override var selectedIndex: Int {
+        didSet {
+            previousSelectedIndex = oldValue
+        }
+    }
+    
+    override var selectedViewController: UIViewController? {
+        didSet {
+            if let newIndex = viewControllers?.firstIndex(of: selectedViewController!) {
+                previousSelectedIndex = oldValue != nil ? viewControllers!.firstIndex(of: oldValue!)! : 0
+                print("Tab changed from \(previousSelectedIndex) to \(newIndex)")
+            }
+        }
+    }
+}

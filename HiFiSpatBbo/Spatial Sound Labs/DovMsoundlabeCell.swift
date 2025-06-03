@@ -2,7 +2,7 @@
 //  DovMsoundlabeCell.swift
 //  HiFiSpatBbo
 //
-//  Created by mumu on 2025/5/29.
+//  Created by HiFiSpatBbo on 2025/5/29.
 //
 
 import UIKit
@@ -17,6 +17,7 @@ class DovMsoundlabeCell: UITableViewCell {
     
     @IBOutlet weak var webhookLabel: UILabel!
     
+    @IBOutlet weak var zhuanmu: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         BellUserImageci.roundEditorCorners(editorradius: 30)
@@ -24,19 +25,19 @@ class DovMsoundlabeCell: UITableViewCell {
 
     func transientEenvelope(patam:Dictionary<String,Any>) {
         
-        exhibitionLabel.text = patam[""] as? String
-        webhookLabel.text = patam[""] as? String
+        exhibitionLabel.text = patam["scratch"] as? String
+        webhookLabel.text = patam["digitalAudio"] as? String
         
-        let timgd = Int64(patam[""] as? Int ?? 0)
+        let timgd = Int64(patam["arranger"] as? Int ?? 0)/1000
         let date = Date(timeIntervalSince1970: TimeInterval(integerLiteral: timgd))
         
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        webhookLabel.text =  formatter.string(from: date)
+        zhuanmu.text =  formatter.string(from: date)
         
         
-        guard let parody =  patam[""] as? String else {
+        guard let parody =  patam["turntable"] as? String else {
             return
         }
         

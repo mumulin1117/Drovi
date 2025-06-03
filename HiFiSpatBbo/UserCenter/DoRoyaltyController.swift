@@ -4,7 +4,7 @@
 //
 //  Created by  on 2025/5/29.
 //
-
+import SVProgressHUD
 import UIKit
 //log in
 class DoRoyaltyController: UIViewController {
@@ -45,7 +45,7 @@ class DoRoyaltyController: UIViewController {
     
 
     @IBAction func electronic(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func bandPass(_ sender: UIButton) {
@@ -62,6 +62,81 @@ class DoRoyaltyController: UIViewController {
     @objc func trimming() {
         self.navigationController?.pushViewController(FigfreinsfKonwedge.init(), animated: true)
     }
+    
+    private var importer:Dictionary<String,Any>?
+    
+    
+    @IBAction func ManagementGoamae(_ sender: Any) {
+        if let Predefined = noiseGate.text ,
+           !Predefined.isEmpty{
+           
+            if let against = survey.text,against.count >= 6,against.count <= 12{
+                
+                if self.bandPol.isSelected {
+                    
+                    SVProgressHUD.show(withStatus: "Log in.....")
+                    
+                    
+                    BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["aiff":Predefined,"flac":against,"streaming":NoiseGate.appID], resonanceFrequency: "/ogznmeuz/cmjxzzyj") { complexity in
+                        SVProgressHUD.dismiss()
+                        guard
+                               let splicing = complexity as? Dictionary<String,Any> ,
+                             
+                              let mixing = splicing["data"] as? Dictionary<String,Any>
+                                
+                        else {
+                       
+                            SVProgressHUD.showError(withStatus: "Data Error")
+                            return
+                        }
+                        
+                        
+                        self.importer = mixing
+                        
+                        
+                        self.dealamplifier()
+                        
+                        
+                        SVProgressHUD.showSuccess(withStatus: "Log in successful!")
+                    } dissonanceHandler: { errt in
+                        SVProgressHUD.dismiss()
+                        SVProgressHUD.showError(withStatus: errt.localizedDescription)
+                    }
+
+                    
+                }else{
+                    SVProgressHUD.showError(withStatus: "please read and agree to privacy policy and user terms ")
+                }
+                
+                
+                
+            }else{
+                SVProgressHUD.showError(withStatus: "Please enter password(6-12 characters)")
+            }
+        }else{
+            SVProgressHUD.showError(withStatus: "Please enter your email address")
+        }
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    func dealamplifier()  {
+    
+        NoiseGate.feed = self.importer?["feed"] as? String
+        
+        NoiseGate.recording = self.importer?["recording"] as? Int
+        UserDefaults.standard.set(self.importer?["mastering"] as? String, forKey: "mastering")
+        self.navigationController?.popToRootViewController(animated: true)
+        
+    }
+    
+    
+    
 }
 
 

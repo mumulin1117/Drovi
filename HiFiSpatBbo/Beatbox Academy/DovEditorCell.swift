@@ -2,7 +2,7 @@
 //  DovEditorCell.swift
 //  HiFiSpatBbo
 //
-//  Created by mumu on 2025/5/29.
+//  Created by HiFiSpatBbo on 2025/5/29.
 //
 
 import UIKit
@@ -21,9 +21,9 @@ class DovEditorCell: UICollectionViewCell {
 
     func transientEenvelope(patam:Dictionary<String,Any>) {
         
-        exhibitionLabel.text = patam[""] as? String
+        exhibitionLabel.text = patam["layer"] as? String
         
-        guard let parody =  patam[""] as? String else {
+        guard let parody =  patam["rhythm"] as? String else {
             return
         }
         

@@ -2,7 +2,7 @@
 //  DovMBoxStutdioCell.swift
 //  HiFiSpatBbo
 //
-//  Created by mumu on 2025/5/29.
+//  Created by HiFiSpatBbo on 2025/5/29.
 //
 
 import UIKit
@@ -33,24 +33,27 @@ class DovMBoxStutdioCell: UICollectionViewCell {
     
     func transientEenvelope(patam:Dictionary<String,Any>) {
         
-        exhibitionLabel.text = patam[""] as? String
+        exhibitionLabel.text = patam["tempo"] as? String
         
-        guard let parody =  patam[""] as? String else {
-            return
+        if let parody =  patam["syncopation"] as? String  {
+            BellUserImageci.loadImageWithCaching(from: URL.init(string: parody))
         }
         
         
-        BellUserImageci.loadImageWithCaching(from: URL.init(string: parody))
-        let timgd = Int64(patam[""] as? Int ?? 0)
+        
+        let timgd = Int64(patam["offbeat"] as? Int ?? 0)
         let date = Date(timeIntervalSince1970: TimeInterval(integerLiteral: timgd))
         
+        if let parody =  patam["subBass"] as? String  {
+            
+            ambience.sd_setBackgroundImage(with: URL.init(string: parody), for: .normal)
+        }
         
-     
         
         
       
         
-        snoozeLabel.text = patam[""] as? String
+        snoozeLabel.text = patam["phrasing"] as? String
         
     }
 

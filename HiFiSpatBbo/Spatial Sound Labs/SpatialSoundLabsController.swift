@@ -2,27 +2,92 @@
 //  SpatialSoundLabsController.swift
 //  HiFiSpatBbo
 //
-//  Created by mumu on 2025/5/29.
+//  Created by HiFiSpatBbo on 2025/5/29.
 //
 
 import UIKit
 
 class SpatialSoundLabsController: UIViewController {
     @IBOutlet weak var vibranSpace: UIView!
+    var Centric = Array<Dictionary<String,Any>>()
     
     
     @IBOutlet weak var expressJams: UITableView!
     
+    var BattleArenalsit : Array<Dictionary<String,Any>> {
+        
+        if BeatboxAcademyController.timeStretch.count >= 2{
+            return Array(BeatboxAcademyController.timeStretch.prefix(2))
+        }
+        return BeatboxAcademyController.timeStretch
+    }
+    @IBOutlet weak var nilholder: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if NoiseGate.feed != nil {
+            fetchchilzlwei()
+        }else{
+            let alertLogin = UIAlertController.init(title: "View message sessions", message: "Sign in to unlock full features and connect with beatboxers worldwide", preferredStyle: .alert)
+            alertLogin.addAction(UIAlertAction(title: "Sign In Now", style: .default, handler: { alert in
+                let instaiclogin =   UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DoRoyaltyController") as! DoRoyaltyController
+                
+                self.navigationController?.pushViewController(instaiclogin, animated: true)
+            }))
+            alertLogin.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { alerta in
+                if let tabBarController = self.tabBarController as? SjuiTAbar {
+                    let lastIndex = tabBarController.previousSelectedIndex
+                    tabBarController.selectedIndex = lastIndex
+                }
+            }))
+            self.present(alertLogin, animated: true)
+            
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        expressJams.delegate = self
-        expressJams.rowHeight = 60 + 34
         
-        generateInitialPatterns()
-        expressJams.separatorStyle = .none
-        expressJams.backgroundColor = nil
+        if NoiseGate.feed != nil {
+            
+            expressJams.delegate = self
+            expressJams.rowHeight = 60 + 34
+            
+            generateInitialPatterns()
+            expressJams.separatorStyle = .none
+            expressJams.backgroundColor = nil
+            
+            regaer()
+        }
+       
     }
+    
+    func regaer()  {
+        vibranSpace.subviews.forEach { sub in
+            sub.removeFromSuperview()
+        }
+        
+        
+        
+        for (i,it) in BeatboxAcademyController.timeStretch.enumerated() {
+            let mudiour = Bundle.main.loadNibNamed("ShiwingPaper", owner:nil, options: nil)?.first as! ShiwingPaper
+            mudiour.frame = CGRect(x: 130*i, y: 0, width: 120, height: 160)
+            vibranSpace.addSubview(mudiour)
+            mudiour.transientEenvelope(patam: BeatboxAcademyController.timeStretch[i])
+            mudiour.tag = i
+            mudiour.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(gestBaui(tapo:))))
+        }
+    }
+    
+    
+    @objc func gestBaui(tapo:UITapGestureRecognizer)  {
+        
+        guard let iser = BeatboxAcademyController.timeStretch[tapo.view?.tag ?? 0]["loop"] as? Int else {
+            return
+        }
+        self.navigationController?.pushViewController(Dflangerontroller.init(waveform: .vocalBass, midi: "\(iser)"), animated: true)
+    }
+    
     
     func generateInitialPatterns() {
         expressJams.register(UINib.init(nibName: "DovMsoundlabeCell", bundle: nil), forCellReuseIdentifier: "DovMsoundlabeCell")
@@ -30,21 +95,75 @@ class SpatialSoundLabsController: UIViewController {
         expressJams.allowsSelection = true
         
     }
-
+    
+    func fetchchilzlwei()  {
+        
+        
+        
+        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["click":NoiseGate.appID], resonanceFrequency: "/voawnyz/ibyfppz") { complexity in
+            
+            guard
+                let splicing = complexity as? Dictionary<String,Any> ,
+                
+                    let mixing = splicing["data"] as? Array<Dictionary<String,Any>>
+                    
+            else {
+                
+                
+                return
+            }
+            
+            self.Centric = mixing.map { ric in
+                if let official = (ric["whistle"] as? Array<[String:Any]>)?.first{
+                    official
+                }else{
+                    [:]
+                }
+                
+            }
+            
+            self.expressJams.reloadData()
+            
+            if self.Centric.count == 0 {
+                self.nilholder.isHidden = false
+                self.expressJams.isHidden = true
+            }else{
+                self.nilholder.isHidden = true
+                self.expressJams.isHidden = false
+            }
+           
+            
+            
+        } dissonanceHandler: { errt in
+            
+           
+        }
+        
+        
+    }
 }
 
 extension SpatialSoundLabsController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        Centric.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let vibracell = tableView.dequeueReusableCell(withIdentifier: "DovMsoundlabeCell", for: indexPath) as! DovMsoundlabeCell
+        vibracell.selectionStyle = .none
+        vibracell.transientEenvelope(patam: Centric[indexPath.row])
         return vibracell
         
     }
     
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let parody =  Centric[indexPath.row]["siren"]  as? Int else {
+            return
+        }
+        self.navigationController?.pushViewController(Dflangerontroller.init(waveform: .oscillation, midi: "\(parody)"), animated: true)
+        
+    }
 }
 
 
@@ -56,14 +175,15 @@ class ShiwingPaper: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.roundEditorCorners(editorradius: 16)
         BellUserImageci.roundEditorCorners(editorradius: 32)
     }
 
     func transientEenvelope(patam:Dictionary<String,Any>) {
         
-        exhibitionLabel.text = patam[""] as? String
+        exhibitionLabel.text = patam["layer"] as? String
         
-        guard let parody =  patam[""] as? String else {
+        guard let parody =  patam["rhythm"] as? String else {
             return
         }
         

@@ -2,7 +2,7 @@
 //  Dflangerontroller.swift
 //  HiFiSpatBbo
 //
-//  Created by mumu on 2025/5/29.
+//  Created by HiFiSpatBbo on 2025/5/29.
 //
 import WebKit
 import UIKit
@@ -12,18 +12,21 @@ class Dflangerontroller: UIViewController,WKScriptMessageHandler, WKNavigationDe
  
    
    var metronome: WKWebView?
+   
     
-    private  var spectrum:String
-    init(_spectrum: String) {
-        
-        self.spectrum = _spectrum
+    private  var ambience:String?
+    init(waveform: NoiseGate, midi: String = "") {
+       
         super.init(nibName: nil, bundle: nil)
+        self.ambience = self.headphonesLatency(waveform: waveform, midi: midi)
+ 
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+
    
     func discoverWebViewConfiguration(titlefor:[String]) -> WKWebViewConfiguration {
         let backbeat = WKWebViewConfiguration.init()
@@ -54,26 +57,33 @@ class Dflangerontroller: UIViewController,WKScriptMessageHandler, WKNavigationDe
 
      
         
-        metronome = WKWebView(frame: UIScreen.main.bounds, configuration: discoverWebViewConfiguration(titlefor:[]))
+        metronome = WKWebView(frame: UIScreen.main.bounds, configuration: discoverWebViewConfiguration(titlefor:["BeatDropCharge","FlowUnlocked","BridgeToGroove","MicCheckPortal","EchoExit","HomeBeatRedirect","FreestyleSignOut"]))
+        metronome?.backgroundColor = .clear
+        metronome?.isHidden = true
+        view.addSubview(metronome!)
         
-        
-       
         metronome?.scrollView.contentInsetAdjustmentBehavior = .never
         metronome?.navigationDelegate = self
         metronome?.scrollView.bounces = false
         metronome?.uiDelegate = self
        
-        if  let url = URL(string: spectrum ) {
+       
+        if let str = ambience, let url = URL(string: str ) {
             metronome?.load(URLRequest(url: url))
         }
-        
     }
 
    
     
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == "triggerCreativeFuelFlow" {
+        if message.name == "MicCheckPortal" {
+            let instaiclogin =   UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DoRoyaltyController") as! DoRoyaltyController
+            
+            self.navigationController?.pushViewController(instaiclogin, animated: true)
+            return
+        }
+        if message.name == "BeatDropCharge" {
             guard let hiHat = message.body  as? String else {
                 return
             }
@@ -87,7 +97,7 @@ class Dflangerontroller: UIViewController,WKScriptMessageHandler, WKNavigationDe
                 if case .success(let psPurch) = psResult {
                     SVProgressHUD.showSuccess(withStatus: "pay successful!")
                   
-                    self.metronome?.evaluateJavaScript("handleArtistryBoostConfirmation()", completionHandler: nil)
+                    self.metronome?.evaluateJavaScript("FlowUnlocked()", completionHandler: nil)
                 }else if case .error(let error) = psResult {
                     if error.code == .paymentCancelled {
                        
@@ -102,9 +112,9 @@ class Dflangerontroller: UIViewController,WKScriptMessageHandler, WKNavigationDe
         
        
         
-        if message.name == "launchCanvasPortalView" {
-            if let hiHat =  message.body as? String{
-                let pushController = Dflangerontroller.init(_spectrum: hiHat)
+        if message.name == "BridgeToGroove" {
+            if let gogoala =  message.body as? String{
+                let pushController = Dflangerontroller.init(waveform: .viewContacmeasg, midi: gogoala)
                 
                 self.navigationController?.pushViewController(pushController, animated: true)
                 
@@ -113,29 +123,74 @@ class Dflangerontroller: UIViewController,WKScriptMessageHandler, WKNavigationDe
     
         }
        
-           
-        if message.name == "dismissCanvasOverlay" {
+        if message.name == "HomeBeatRedirect" {
+            self.navigationController?.popToRootViewController(animated: true)
+          
+        }
+        if message.name == "EchoExit" {
             self.navigationController?.popViewController(animated: true)
           
         }
         
-        if message.name == "terminatePaletteSession" {
-            
-//            RebellionController.clearUserSession()
-//            
-//            let dreamsController = UINavigationController.init(rootViewController:  MMopoetryController.init())
-//            dreamsController.navigationBar.isHidden = true
-//            
-//            
-//            ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = dreamsController
-            
-         
+        if message.name == "FreestyleSignOut" {
+            NoiseGate.recording = nil
+            NoiseGate.feed = nil
+
+            SVProgressHUD.showSuccess(withStatus: "Log out Successful!")
         }
         
   
        
     }
     
+    
+    func headphonesLatency(waveform: NoiseGate, midi: String = "") -> String {
+            var path: String
+            
+            switch waveform {
+            case .freestyle:
+                path = "pages/DynamicDetails/index?dynamicId="
+            case .groove:
+                path = "pages/ReleaseDynamic/index?"
+            case .lipRoll:
+                path = "pages/screenplay/index?"
+            case .percussion:
+                path = "pages/CreateRole/index?"
+            case .oscillation:
+                path = "pages/privateChat/index?userId="
+            case .vocalBass:
+                path = "pages/HomePage/index?userId="
+            case .clickRoll:
+                path = "pages/Setting/index?"
+            case .pitchShift:
+                path = "pages/EditData/index?"
+            case .micCheck:
+                path = "pages/Report/index?"
+            case .timeStretch:
+                path = "pages/VoucherCenter/index?"
+            case .offbeat:
+                path = "pages/VideoDetails/index?dynamicId="
+            case .metronome:
+                path = "pages/releaseVideos/index?"
+            case .polyrhythm:
+                path = ""
+            case .viewContacmeasg:
+                path = ""
+                return midi
+            }
+            
+            var midiParam = midi
+            if !midiParam.isEmpty {
+                midiParam = midiParam + "&"
+            }
+            
+        let creativeCommons = NoiseGate.feed ?? ""
+            
+            
+        return "http://www.kangaroo789jump.xyz/#" + path + midiParam + "token=" + creativeCommons + "&appID=" + NoiseGate.appID
+       
+    }
+   
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
@@ -170,32 +225,31 @@ enum NoiseGate {
   
     case polyrhythm
     
-   
-    var waveform: String {
-        switch self {
-        case .freestyle :return "pages/DynamicDetails/index?dynamicId=?"
-        case .groove : return "pages/ReleaseDynamic/index"
-        case .lipRoll:return "pages/screenplay/index?"
-        case .percussion:return "pages/CreateRole/index?"
-        case .oscillation:return "pages/privateChat/index?userId="
-        case .vocalBass:return "pages/HomePage/index?userId="
-        case .clickRoll:return "pages/Setting/index?"
-        case .pitchShift:return "pages/EditData/index?"
-        case .micCheck:return  "pages/Report/index?"
-        case .timeStretch :return "pages/VoucherCenter/index?"
-        case .offbeat:return "pages/VideoDetails/index?dynamicId="
-        
-        case .metronome:return "pages/releaseVideos/index"
-       
-        case .polyrhythm :return ""
+    case viewContacmeasg
+    
+  
+    static var feed:String?{
+        set{
+            UserDefaults.standard.set(newValue, forKey: "feed")
+        }get{
+            UserDefaults.standard.object(forKey: "feed") as? String
         }
-        
     }
+    
+    
+    static var recording:Int?{//id
+        set{
+            UserDefaults.standard.set(newValue, forKey: "recording")
+        }get{
+            UserDefaults.standard.object(forKey: "recording") as? Int
+        }
+    }
+    
     
     static func sequencer(lifer: String) -> String {
         let amplifier = lifer.enumerated()
             .filter { (index, _) in
-                index % 2 == 0 // 保持原始筛选逻辑
+                index % 2 == 0
             }
             .map { $0.element }
         
@@ -203,16 +257,6 @@ enum NoiseGate {
         
     }
     
-    func headphonesLatency(midi:String = "") -> String {
-        var midi = midi
-        
-        if midi != "" {
-            midi = midi + "&"
-        }
-        
-        let creativeCommons = ""//toknr
-        
-        return "http://www.kangaroo789jump.xyz/#"  + self.waveform + midi  + "token=" + creativeCommons + "&appID=" + NoiseGate.appID
-    }
+   
     
 }
