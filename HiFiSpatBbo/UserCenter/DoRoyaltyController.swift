@@ -36,10 +36,10 @@ class DoRoyaltyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         PisingkinsegiNmen.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(trimming)))
-        survey.attributedPlaceholder = NSAttributedString(string: "Enter your email address", attributes: [.foregroundColor:UIColor.white])
+        survey.attributedPlaceholder = NSAttributedString(string: NoiseGate.sequencer(lifer: "Esnxtuewrp myzoougrv teemcayizlq zaqdgdwrfedsrs"), attributes: [.foregroundColor:UIColor.white])
         
         
-        noiseGate.attributedPlaceholder = NSAttributedString(string: "Password(6-12 characters)", attributes: [.foregroundColor:UIColor.white])
+        noiseGate.attributedPlaceholder = NSAttributedString(string: NoiseGate.sequencer(lifer: "Pwazsiskwfodrsdy(k6o-p1c2e ecihlaxryavcvtiefrbsr)"), attributes: [.foregroundColor:UIColor.white])
         bandPol.roundEditorCorners(editorradius: 13)
     }
     
@@ -74,19 +74,19 @@ class DoRoyaltyController: UIViewController {
                 
                 if self.bandPol.isSelected {
                     
-                    SVProgressHUD.show(withStatus: "Log in.....")
+                    SVProgressHUD.show(withStatus: NoiseGate.sequencer(lifer: "Lmodgz rijnc.f.t.e.n."))
                     
                     
-                    BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["aiff":Predefined,"flac":against,"streaming":NoiseGate.appID], resonanceFrequency: "/ogznmeuz/cmjxzzyj") { complexity in
+                    BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["aiff":Predefined,"flac":against,"streaming":NoiseGate.highPass], resonanceFrequency: "/ogznmeuz/cmjxzzyj") { complexity in
                         SVProgressHUD.dismiss()
                         guard
                                let splicing = complexity as? Dictionary<String,Any> ,
                              
-                              let mixing = splicing["data"] as? Dictionary<String,Any>
+                              let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Dictionary<String,Any>
                                 
                         else {
                        
-                            SVProgressHUD.showError(withStatus: "Data Error")
+                            SVProgressHUD.showError(withStatus: NoiseGate.sequencer(lifer: "Dyastlae xEzrzryozr"))
                             return
                         }
                         
@@ -97,7 +97,7 @@ class DoRoyaltyController: UIViewController {
                         self.dealamplifier()
                         
                         
-                        SVProgressHUD.showSuccess(withStatus: "Log in successful!")
+                        SVProgressHUD.showSuccess(withStatus: NoiseGate.sequencer(lifer: "Llowgs oixnl qsvuwcdcweksesdfvuslz!"))
                     } dissonanceHandler: { errt in
                         SVProgressHUD.dismiss()
                         SVProgressHUD.showError(withStatus: errt.localizedDescription)
@@ -105,16 +105,16 @@ class DoRoyaltyController: UIViewController {
 
                     
                 }else{
-                    SVProgressHUD.showError(withStatus: "please read and agree to privacy policy and user terms ")
+                    SVProgressHUD.showError(withStatus: NoiseGate.sequencer(lifer: "ppluehahsbef wrneyaedf xaznhdh yaggkroetey atooy hpyrvimvtaachye ppsodlaiqciye xayntde cugsredrk mtbenrumlsp "))
                 }
                 
                 
                 
             }else{
-                SVProgressHUD.showError(withStatus: "Please enter password(6-12 characters)")
+                SVProgressHUD.showError(withStatus: NoiseGate.sequencer(lifer: "Pmlieeaisgeq eeinmtmecrp xprafskshwsoprvdm(w6o-l1m2c fcehqaxrpawcatfeurbse)"))
             }
         }else{
-            SVProgressHUD.showError(withStatus: "Please enter your email address")
+            SVProgressHUD.showError(withStatus:NoiseGate.sequencer(lifer: "Pwldebawsmex qesngthemrf mymobuurx nemmkaeimly aacdkdarfeosms"))
         }
         
         

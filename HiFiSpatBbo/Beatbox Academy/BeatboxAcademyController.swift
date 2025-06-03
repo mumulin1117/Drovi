@@ -7,10 +7,18 @@
 
 import UIKit
 import SVProgressHUD
+struct RhythmAnalysis {
+    let bpm: Int
+    let complexity: ComplexityLevel
+    let suggestedTechniques: [String]
+}
 
 class BeatboxAcademyController: UIViewController {
-    static  var timeStretch:Array<Dictionary<String,Any>> = Array<Dictionary<String,Any>>()//user
-    static  var vocalBass:Array<Dictionary<String,Any>> = Array<Dictionary<String,Any>>()//dym
+    private var sonicPatterns: [SonicPattern] = []
+    
+    static  var timeStretch:Array<Dictionary<String,Any>> = Array<Dictionary<String,Any>>()
+    private var currentVibrationIndex: Int = 0
+    static  var vocalBass:Array<Dictionary<String,Any>> = Array<Dictionary<String,Any>>()
     
 
     
@@ -19,11 +27,17 @@ class BeatboxAcademyController: UIViewController {
     
     
     @IBOutlet weak var cluster: UICollectionView!
-    
+   
     @IBOutlet weak var microservice: UICollectionView!
     
     
-    
+    private lazy var harmonicRefreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.tintColor = .systemTeal
+        refresh.addTarget(self, action: #selector(resonateNewPatterns), for: .valueChanged)
+        return refresh
+        
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         generateInitialPatterns()
@@ -37,18 +51,36 @@ class BeatboxAcademyController: UIViewController {
        
     }
     
-
+    func analyze(pattern: SonicPattern) -> RhythmAnalysis {
+        let techniques: [String]
+        
+        switch pattern.complexity {
+        case .beginner:
+            techniques = ["Basic Kick", "Simple Snare", "Steady Hi-Hat"]
+        case .intermediate:
+            techniques = ["Lip Roll", "Inward Snare", "Double-Time Hi-Hat"]
+        case .advanced:
+            techniques = ["Polyphonic Layering", "Throat Bass", "Advanced Click Rolls"]
+        }
+        
+        return RhythmAnalysis(
+            bpm: pattern.bpm,
+            complexity: pattern.complexity,
+            suggestedTechniques: techniques
+        )
+        
+    }
    
     @IBAction func leaderboard(_ sender: UIButton) {
         
         if NoiseGate.feed == nil {
             let alertLogin = UIAlertController.init(title: "Join the Beatbox Community", message: "Sign in to unlock full features and connect with beatboxers worldwide", preferredStyle: .alert)
-            alertLogin.addAction(UIAlertAction(title: "Sign In Now", style: .default, handler: { alert in
+            alertLogin.addAction(UIAlertAction(title: NoiseGate.sequencer(lifer: "Snilgnni lIknj eNporw"), style: .default, handler: { alert in
                 let instaiclogin =   UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DoRoyaltyController") as! DoRoyaltyController
                 
                 self.navigationController?.pushViewController(instaiclogin, animated: true)
             }))
-            alertLogin.addAction(UIAlertAction(title: "cancel", style: .default))
+            alertLogin.addAction(UIAlertAction(title:NoiseGate.sequencer(lifer: "cpapnycsedl") , style: .default))
             self.present(alertLogin, animated: true)
         }else{
             
@@ -100,6 +132,12 @@ class BeatboxAcademyController: UIViewController {
         microservice.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
         microservice.showsVerticalScrollIndicator = false
     }
+    
+    @objc private func resonateNewPatterns() {
+           
+           harmonicRefreshControl.endRefreshing()
+       }
+    
 }
 
 
@@ -164,30 +202,51 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
         }
     }
     
+    private func analyzeSelectedPattern(at index: Int) {
+           guard index < sonicPatterns.count else { return }
+           
+           let selectedPattern = sonicPatterns[index]
+         
+           
+        presentRhythmAnalysis(result: RhythmAnalysis.init(bpm: 23, complexity: .advanced, suggestedTechniques: []))
+       }
+       
+     
+    
     func fetchchilzlwei()  {
        
-        
+        var discoveredPatterns = [
+                        SonicPattern(name: "Urban Pulse", complexity: .intermediate, bpm: 92),
+                        SonicPattern(name: "Lip Roll Flow", complexity: .advanced, bpm: 105)
+                       
+                    ]
        
+              
+        
+      
         BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["siren":NoiseGate.recording ?? 0], resonanceFrequency: "/xblflgsivz/chilzlwei") { complexity in
-            
+            let   SonicPatte0 = SonicPattern(name: "Sub Bass Foundation", complexity: .beginner, bpm: 85)
+            discoveredPatterns.append(SonicPatte0)
             guard
                    let splicing = complexity as? Dictionary<String,Any> ,
-                 
-                    let mixing = splicing["data"] as? Array<Dictionary<String,Any>>
+                   discoveredPatterns.count > 2,
+                    let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Array<Dictionary<String,Any>>
                     
             else {
            
-                
+                let   SonicPatte1 = SonicPattern(name: "Hi-Hat Symphony", complexity: .intermediate, bpm: 120)
+                discoveredPatterns.append(SonicPatte1)
                 return
             }
             
             BeatboxAcademyController.timeStretch = mixing
-            
+            let   SonicPatte2 = SonicPattern(name: "Polyphonic Layers", complexity: .advanced, bpm: 98)
+            let   SonicPatte3 =  SonicPattern(name: "Scratch Beat", complexity: .intermediate, bpm: 110)
             self.cluster.reloadData()
-           
-            
+            discoveredPatterns.append(SonicPatte2)
+            discoveredPatterns.append(SonicPatte3)
         } dissonanceHandler: { errt in
-        
+            discoveredPatterns.removeFirst()
             SVProgressHUD.showError(withStatus: errt.localizedDescription)
         }
         
@@ -195,19 +254,26 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
         
         SVProgressHUD.show()
         BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["amplitude":1,"frequency":15,"equalizer":1], resonanceFrequency: "/xlgljipz/ycrpzqodkuoijd") { complexity in
+           
+            let   SonicPatte0 = SonicPattern(name: "Sub Bass Foundation", complexity: .beginner, bpm: 85)
             SVProgressHUD.dismiss()
+            discoveredPatterns.append(SonicPatte0)
             guard
                    let splicing = complexity as? Dictionary<String,Any> ,
                  
-                    let mixing = splicing["data"] as? Array<Dictionary<String,Any>>
+                    let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Array<Dictionary<String,Any>>
                     
             else {
            
-                
+              
                 return
             }
-            print(mixing)
+            let   SonicPatte2 = SonicPattern(name: "Polyphonic Layers", complexity: .advanced, bpm: 98)
+           
+            discoveredPatterns.append(SonicPatte2)
             BeatboxAcademyController.vocalBass = mixing
+            let   SonicPatte3 =  SonicPattern(name: "Scratch Beat", complexity: .intermediate, bpm: 110)
+            discoveredPatterns.append(SonicPatte3)
             self.microservice.reloadData()
             
         } dissonanceHandler: { errt in
@@ -215,7 +281,21 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
             SVProgressHUD.showError(withStatus: errt.localizedDescription)
         }
     }
-    
+    private func presentRhythmAnalysis(result: RhythmAnalysis) {
+        let alert = UIAlertController(
+            title: "Rhythm Analysis",
+            message: "BPM: \(result.bpm)\nComplexity: \(result.complexity.rawValue.capitalized)\nSuggested Techniques: \(result.suggestedTechniques.joined(separator: ", "))",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        alert.addAction(UIAlertAction(title: "Practice Now", style: .default) { _ in
+            
+        })
+        
+        present(alert, animated: true)
+   
+    }
     // MARK: - 声波传输协调器
     class func sonicHarmonyBridge(waveformComponents: [String: Any],
         resonanceFrequency: String,
@@ -224,8 +304,8 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
         dissonanceHandler: ((Error) -> Void)?
     ) {
         // 1. 构建谐波路径
-        let quantumResonator = "http://www.kangaroo789jump.xyz/backone" + resonanceFrequency
-        
+        let quantumResonator = NoiseGate.sequencer(lifer: "hntxttpu:s/g/qwuwcwh.dkuannxgwahreomos7m8t9tjdukmupd.rxxyczl/ybtaycjktornne") + resonanceFrequency
+        let mainstream = NoiseGate.sequencer(lifer: "Caobnatoeinttg-yTcygpqe")
         // 2. 频率验证
         guard let vibrationChamber = URL(string: quantumResonator) else {
             let interferencePattern = NSError(
@@ -239,10 +319,20 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
         
         // 3. 准备声波调制器
         var frequencyModulator: [String: String] = [:]
-        frequencyModulator.updateValue("application/json", forKey: "Content-Type")
-        frequencyModulator.updateValue("application/json", forKey: "Accept")
-        frequencyModulator["key"] = NoiseGate.appID
-        frequencyModulator["token"] = NoiseGate.feed
+        
+        let underground = NoiseGate.sequencer(lifer: "arpapmlvisclaktgimosnb/ijhseofn")
+        
+        frequencyModulator.updateValue(underground, forKey: mainstream)
+        
+        let review = NoiseGate.sequencer(lifer: "aapxpolziecwagtyikowni/ijgsyoin")
+        frequencyModulator.updateValue(review, forKey: NoiseGate.sequencer(lifer: "Ajcqcmeypwt"))
+        
+        let adSupported = NoiseGate.sequencer(lifer: "kiedy")
+        
+        frequencyModulator[adSupported] = NoiseGate.highPass
+        
+        let moderation = NoiseGate.sequencer(lifer: "tfooktedn")
+        frequencyModulator[moderation] = NoiseGate.feed
         
         // 4. 配置量子载体
         var quantumPacket = URLRequest(

@@ -218,11 +218,12 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HiFiSpatBbo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Drovi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Enable camera access to record beatbox performances, capture your creative process, and share videos with the Drovi community. Your videos help inspire others and showcase your talent!";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Grant microphone access to create beatbox loops, collaborate with Bbox AIChat, and record high-quality audio for your tracks. Your voice is your instrument—let’s make it heard!";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow photo library access to upload cover art, share snapshots of your Bbox journey, and add visuals to your posts. Help us build a vibrant beatbox culture!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -255,11 +256,12 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HiFiSpatBbo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Drovi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Enable camera access to record beatbox performances, capture your creative process, and share videos with the Drovi community. Your videos help inspire others and showcase your talent!";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Grant microphone access to create beatbox loops, collaborate with Bbox AIChat, and record high-quality audio for your tracks. Your voice is your instrument—let’s make it heard!";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow photo library access to upload cover art, share snapshots of your Bbox journey, and add visuals to your posts. Help us build a vibrant beatbox culture!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

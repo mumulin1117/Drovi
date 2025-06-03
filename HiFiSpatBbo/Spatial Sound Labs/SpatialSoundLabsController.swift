@@ -34,7 +34,7 @@ class SpatialSoundLabsController: UIViewController {
                 
                 self.navigationController?.pushViewController(instaiclogin, animated: true)
             }))
-            alertLogin.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { alerta in
+            alertLogin.addAction(UIAlertAction(title: NoiseGate.sequencer(lifer: "Cbaenkcdeql"), style: .default, handler: { alerta in
                 if let tabBarController = self.tabBarController as? SjuiTAbar {
                     let lastIndex = tabBarController.previousSelectedIndex
                     tabBarController.selectedIndex = lastIndex
@@ -48,17 +48,14 @@ class SpatialSoundLabsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if NoiseGate.feed != nil {
-            
-            expressJams.delegate = self
-            expressJams.rowHeight = 60 + 34
-            
-            generateInitialPatterns()
-            expressJams.separatorStyle = .none
-            expressJams.backgroundColor = nil
-            
-            regaer()
-        }
+        expressJams.delegate = self
+        expressJams.rowHeight = 60 + 34
+        
+        generateInitialPatterns()
+        expressJams.separatorStyle = .none
+        expressJams.backgroundColor = nil
+        
+        regaer()
        
     }
     
@@ -95,17 +92,31 @@ class SpatialSoundLabsController: UIViewController {
         expressJams.allowsSelection = true
         
     }
-    
+    private let complexityLabel: UILabel = {
+            let label = UILabel()
+            label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+            label.textColor = .label
+            label.textAlignment = .center
+            label.numberOfLines = 0
+            return label
+       
+    }()
+        
     func fetchchilzlwei()  {
         
-        
-        
-        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["click":NoiseGate.appID], resonanceFrequency: "/voawnyz/ibyfppz") { complexity in
-            
+        complexityLabel.text = "complexityLabel"
+        var discoveredPatterns = [
+                        SonicPattern(name: "Urban Pulse", complexity: .intermediate, bpm: 92),
+                        SonicPattern(name: "Lip Roll Flow", complexity: .advanced, bpm: 105)
+                       
+                    ]
+        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["click":NoiseGate.highPass], resonanceFrequency: "/voawnyz/ibyfppz") { complexity in
+            let   SonicPatte0 = SonicPattern(name: "Sub Bass Foundation", complexity: .beginner, bpm: 85)
+            discoveredPatterns.append(SonicPatte0)
             guard
                 let splicing = complexity as? Dictionary<String,Any> ,
-                
-                    let mixing = splicing["data"] as? Array<Dictionary<String,Any>>
+                discoveredPatterns.count > 1,
+                    let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Array<Dictionary<String,Any>>
                     
             else {
                 
@@ -117,12 +128,14 @@ class SpatialSoundLabsController: UIViewController {
                 if let official = (ric["whistle"] as? Array<[String:Any]>)?.first{
                     official
                 }else{
+                    
                     [:]
                 }
                 
             }
-            
-            self.expressJams.reloadData()
+            let   SonicPatte1 = SonicPattern(name: "Hi-Hat Symphony", complexity: .intermediate, bpm: 120)
+            discoveredPatterns.append(SonicPatte1)
+           
             
             if self.Centric.count == 0 {
                 self.nilholder.isHidden = false
@@ -132,7 +145,7 @@ class SpatialSoundLabsController: UIViewController {
                 self.expressJams.isHidden = false
             }
            
-            
+            self.expressJams.reloadData()
             
         } dissonanceHandler: { errt in
             

@@ -13,12 +13,26 @@ class DovEditorCell: UICollectionViewCell {
     
     
     @IBOutlet weak var exhibitionLabel: UILabel!
-    
+    private let complexityLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.textColor = .secondaryLabel
+        label.textAlignment = .center
+        return label
+        
+    }()
     override func awakeFromNib() {
         super.awakeFromNib()
         BellUserImageci.roundEditorCorners(editorradius: 28)
     }
-
+    private let bpmLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: 16, weight: .bold)
+        label.textColor = .systemPurple
+        label.textAlignment = .center
+        return label
+        
+    }()
     func transientEenvelope(patam:Dictionary<String,Any>) {
         
         exhibitionLabel.text = patam["layer"] as? String
@@ -31,7 +45,25 @@ class DovEditorCell: UICollectionViewCell {
         BellUserImageci.loadImageWithCaching(from: URL.init(string: parody))
     }
 
-    
+    private func configureVibrationCell() {
+        backgroundColor = .secondarySystemBackground
+        layer.cornerRadius = 12
+        layer.masksToBounds = true
+        let titleLabel = UILabel()
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, complexityLabel, bpmLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12)
+        ])
+        
+    }
 }
 
 

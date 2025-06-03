@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SwiftyStoreKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -14,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        SwiftyStoreKit.completeTransactions(atomically: true) { _ in
+            
+        }
         return true
     }
 
@@ -37,7 +39,7 @@ class SjuiTAbar:UITabBarController{
         didSet {
             if let newIndex = viewControllers?.firstIndex(of: selectedViewController!) {
                 previousSelectedIndex = oldValue != nil ? viewControllers!.firstIndex(of: oldValue!)! : 0
-                print("Tab changed from \(previousSelectedIndex) to \(newIndex)")
+               
             }
         }
     }

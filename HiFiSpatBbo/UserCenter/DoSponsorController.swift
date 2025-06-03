@@ -20,17 +20,12 @@ class DoSponsorController: UIViewController {
   
     @IBOutlet weak var useForMe: UILabel!
     
-    func transientEenvelope(patam:Dictionary<String,Any>) {
-        
-        exhibitionLabel.text = patam[""] as? String
-        useForMe.text = "\(patam[""] as? Int ?? 0)"
-        guard let parody =  patam[""] as? String else {
-            return
-        }
-        
-        
-        BellUserImageci.loadImageWithCaching(from: URL.init(string: parody))
-    }
+    private lazy var harmonicRefreshControl: UIRefreshControl = {
+           let refresh = UIRefreshControl()
+           refresh.tintColor = .systemTeal
+           refresh.addTarget(self, action: #selector(resonateNewPatterns), for: .valueChanged)
+           return refresh
+       }()
     
     private var importer:Dictionary<String,Any>?{
         didSet{
@@ -49,13 +44,18 @@ class DoSponsorController: UIViewController {
         super.viewDidLoad()
         
         BellUserImageci.roundEditorCorners(editorradius: 40)
-       
+        var discoveredPatterns = [
+                        SonicPattern(name: "Urban Pulse", complexity: .intermediate, bpm: 92),
+                        SonicPattern(name: "Lip Roll Flow", complexity: .advanced, bpm: 105)
+                       
+                    ]
         BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["siren":NoiseGate.recording ?? 0], resonanceFrequency: "/mjrqdyz/bxkrdzi") { complexity in
-           
+            let   SonicPatte0 = SonicPattern(name: "Sub Bass Foundation", complexity: .beginner, bpm: 85)
+            discoveredPatterns.append(SonicPatte0)
             guard
                    let splicing = complexity as? Dictionary<String,Any> ,
-                 
-                  let mixing = splicing["data"] as? Dictionary<String,Any>
+                   discoveredPatterns.count > 2,
+                  let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Dictionary<String,Any>
                     
             else {
            
@@ -63,14 +63,21 @@ class DoSponsorController: UIViewController {
                 return
             }
             
+            let   SonicPatte2 = SonicPattern(name: "Polyphonic Layers", complexity: .advanced, bpm: 98)
             
             self.importer = mixing
+            discoveredPatterns.append(SonicPatte2)
+           
+           
             
            
             
         } dissonanceHandler: { errt in
+            let   SonicPatte2 = SonicPattern(name: "Polyphonic Layers", complexity: .advanced, bpm: 98)
             
             SVProgressHUD.showError(withStatus: errt.localizedDescription)
+            discoveredPatterns.append(SonicPatte2)
+            
         }
     }
     
@@ -78,26 +85,33 @@ class DoSponsorController: UIViewController {
         
         self.navigationController?.popViewController(animated: true)
     }
-    
+    @objc private func resonateNewPatterns() {
+          
+          harmonicRefreshControl.endRefreshing()
+      }
    
     @IBAction func UmicStand(_ sender: UIButton) {
-        //66 coin
+      
         if sender.tag == 66 {
+            configureAcousticInterface()
             self.navigationController?.pushViewController(Dflangerontroller.init(waveform: .timeStretch), animated: true)
         }
-        
-        //67 edit
+   
         if sender.tag == 67 {
+            configureAcousticInterface()
             self.navigationController?.pushViewController(Dflangerontroller.init(waveform: .pitchShift), animated: true)
         }
        
-        //68 setting
+        
         if sender.tag == 68 {
+            configureAcousticInterface()
             self.navigationController?.pushViewController(Dflangerontroller.init(waveform: .clickRoll), animated: true)
         }
         
     }
     
     
-
+    private func configureAcousticInterface(){
+        view.backgroundColor = UIColor.systemBackground
+    }
 }

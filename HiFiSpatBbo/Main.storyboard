@@ -669,7 +669,7 @@
                                 <sections/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No message record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C73-Uj-XCF">
-                                <rect key="frame" x="113" y="292" width="149" height="21"/>
+                                <rect key="frame" x="113" y="332" width="149" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -687,7 +687,7 @@
                             <constraint firstItem="vzl-Ek-kJw" firstAttribute="top" secondItem="VDA-YI-b55" secondAttribute="top" id="Q9H-FK-FIO"/>
                             <constraint firstAttribute="bottom" secondItem="vzl-Ek-kJw" secondAttribute="bottom" id="T4x-OT-1jR"/>
                             <constraint firstItem="iRA-dR-ddW" firstAttribute="top" secondItem="KTd-ZH-6RV" secondAttribute="bottom" constant="36" id="TPb-Et-6cv"/>
-                            <constraint firstItem="C73-Uj-XCF" firstAttribute="top" secondItem="KTd-ZH-6RV" secondAttribute="bottom" constant="7" id="Vfg-3P-Uyd"/>
+                            <constraint firstItem="C73-Uj-XCF" firstAttribute="top" secondItem="KTd-ZH-6RV" secondAttribute="bottom" constant="47" id="Vfg-3P-Uyd"/>
                             <constraint firstItem="C73-Uj-XCF" firstAttribute="centerX" secondItem="VDA-YI-b55" secondAttribute="centerX" id="guQ-K9-xn6"/>
                             <constraint firstItem="Ggi-nu-E9o" firstAttribute="trailing" secondItem="KTd-ZH-6RV" secondAttribute="trailing" id="kU0-VG-o1A"/>
                             <constraint firstItem="iRA-dR-ddW" firstAttribute="leading" secondItem="Ggi-nu-E9o" secondAttribute="leading" constant="12" id="n9q-2L-u1g"/>

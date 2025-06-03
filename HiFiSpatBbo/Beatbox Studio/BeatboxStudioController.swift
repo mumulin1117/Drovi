@@ -6,7 +6,11 @@
 //
 
 import UIKit
-
+struct SonicPattern {
+    var name: String
+    var complexity: ComplexityLevel
+    var bpm: Int
+}
 class BeatboxStudioController: UIViewController {
 
     

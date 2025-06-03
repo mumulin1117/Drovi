@@ -33,7 +33,7 @@ class DovMsoundlabeCell: UITableViewCell {
         
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        formatter.dateFormat = NoiseGate.sequencer(lifer: "ytycysyv-zMsMw-xdsdv fHyHl:kmym")
         zhuanmu.text =  formatter.string(from: date)
         
         
