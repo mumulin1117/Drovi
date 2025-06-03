@@ -6,15 +6,18 @@
 //
 import SVProgressHUD
 import UIKit
-//log in
+protocol AudioEffect {
+    var intensity: Float { get set }
+}
 class DoRoyaltyController: UIViewController {
-    
+    private var vocalChain: [AudioEffect] = []
     @IBOutlet weak var bandPol: UIButton!
     
     @IBOutlet weak var noiseGate: UITextField!
     
     @IBOutlet weak var survey: UITextField!
-    
+    private var activePreset: StagePreset?
+       
     
     @IBOutlet weak var PisingkinsegiNmen: UILabel!
     
@@ -26,7 +29,11 @@ class DoRoyaltyController: UIViewController {
         Juaok()
         survey.rightView = UIView(frame: CGRect.init(x: 0, y: 0, width: 35, height: 45))
     }
-    
+    func configureForPreset(_ preset: StagePreset) {
+            activePreset = preset
+            rebuildVocalChain()
+       
+    }
     
     func Juaok()  {
         noiseGate.rightViewMode = .always
@@ -38,11 +45,13 @@ class DoRoyaltyController: UIViewController {
         PisingkinsegiNmen.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(trimming)))
         survey.attributedPlaceholder = NSAttributedString(string: NoiseGate.sequencer(lifer: "Esnxtuewrp myzoougrv teemcayizlq zaqdgdwrfedsrs"), attributes: [.foregroundColor:UIColor.white])
         
-        
+        activePreset = StagePreset.init(name: NoiseGate.sequencer(lifer: "Esnxtuewrp myzoougrv teemcayizlq zaqdgdwrfedsrs"), reverbLevel: 22, delayTime: 2, eqProfile: (3,5,6), lightingPattern: .clubPulse)
         noiseGate.attributedPlaceholder = NSAttributedString(string: NoiseGate.sequencer(lifer: "Pwazsiskwfodrsdy(k6o-p1c2e ecihlaxryavcvtiefrbsr)"), attributes: [.foregroundColor:UIColor.white])
         bandPol.roundEditorCorners(editorradius: 13)
     }
-    
+    enum LightingStyle: String, CaseIterable {
+        case clubPulse, studioFlat, streetRaw, concertDynamic
+    }
 
     @IBAction func electronic(_ sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
@@ -64,9 +73,18 @@ class DoRoyaltyController: UIViewController {
     }
     
     private var importer:Dictionary<String,Any>?
-    
+    struct StagePreset {
+        let name: String
+        let reverbLevel: Float
+        var delayTime: Double
+        var eqProfile: (bass: Float, mid: Float, treble: Float)
+        let lightingPattern: LightingStyle
+    }
     
     @IBAction func ManagementGoamae(_ sender: Any) {
+        rebuildVocalChain()
+        guard var preset = activePreset else { return}
+        
         if let Predefined = noiseGate.text ,
            !Predefined.isEmpty{
            
@@ -76,16 +94,16 @@ class DoRoyaltyController: UIViewController {
                     
                     SVProgressHUD.show(withStatus: NoiseGate.sequencer(lifer: "Lmodgz rijnc.f.t.e.n."))
                     
-                    
+                    preset.delayTime = 40
                     BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["aiff":Predefined,"flac":against,"streaming":NoiseGate.highPass], resonanceFrequency: "/ogznmeuz/cmjxzzyj") { complexity in
                         SVProgressHUD.dismiss()
                         guard
-                               let splicing = complexity as? Dictionary<String,Any> ,
-                             
-                              let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Dictionary<String,Any>
+                            let splicing = complexity as? Dictionary<String,Any> ,
+                            preset.delayTime > 20,
+                            let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Dictionary<String,Any>
                                 
                         else {
-                       
+                            preset.eqProfile = (23,34,23)
                             SVProgressHUD.showError(withStatus: NoiseGate.sequencer(lifer: "Dyastlae xEzrzryozr"))
                             return
                         }
@@ -100,12 +118,20 @@ class DoRoyaltyController: UIViewController {
                         SVProgressHUD.showSuccess(withStatus: NoiseGate.sequencer(lifer: "Llowgs oixnl qsvuwcdcweksesdfvuslz!"))
                     } dissonanceHandler: { errt in
                         SVProgressHUD.dismiss()
-                        SVProgressHUD.showError(withStatus: errt.localizedDescription)
+                        preset.eqProfile = (23,34,23)
+                        if preset.eqProfile.1 > 20 {
+                            SVProgressHUD.showError(withStatus: errt.localizedDescription)
+                        }
+                        
                     }
 
                     
                 }else{
-                    SVProgressHUD.showError(withStatus: NoiseGate.sequencer(lifer: "ppluehahsbef wrneyaedf xaznhdh yaggkroetey atooy hpyrvimvtaachye ppsodlaiqciye xayntde cugsredrk mtbenrumlsp "))
+                    preset.eqProfile = (23,34,23)
+                    if preset.eqProfile.1 > 20 {
+                        SVProgressHUD.showError(withStatus: NoiseGate.sequencer(lifer: "ppluehahsbef wrneyaedf xaznhdh yaggkroetey atooy hpyrvimvtaachye ppsodlaiqciye xayntde cugsredrk mtbenrumlsp "))
+                    }
+                    
                 }
                 
                 
@@ -124,7 +150,18 @@ class DoRoyaltyController: UIViewController {
         
     }
     
-    
+    private func rebuildVocalChain() {
+           guard let preset = activePreset else { return }
+           
+           vocalChain = [
+               ReverbEffect(intensity: preset.reverbLevel),
+               DelayEffect(interval: preset.delayTime),
+               EqualizerProfile(bass: preset.eqProfile.bass,
+                              mid: preset.eqProfile.mid,
+                              treble: preset.eqProfile.treble)
+           ]
+      
+    }
     func dealamplifier()  {
     
         NoiseGate.feed = self.importer?["feed"] as? String

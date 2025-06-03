@@ -7,7 +7,21 @@
 
 import UIKit
 import SVProgressHUD
-//user center
+struct ReverbEffect: AudioEffect {
+    var intensity: Float
+}
+
+struct DelayEffect: AudioEffect {
+    var intensity: Float = 1.0
+    let interval: Double
+}
+
+struct EqualizerProfile: AudioEffect {
+    var intensity: Float = 1.0
+    let bass: Float
+    let mid: Float
+    let treble: Float
+}
 class DoSponsorController: UIViewController {
 
     
