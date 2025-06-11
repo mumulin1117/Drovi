@@ -14,9 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        SwiftyStoreKit.completeTransactions(atomically: true) { _ in
-            
-        }
+        
+        generationLight()
+       
         return true
     }
 
@@ -41,6 +41,18 @@ class SjuiTAbar:UITabBarController{
                 previousSelectedIndex = oldValue != nil ? viewControllers!.firstIndex(of: oldValue!)! : 0
                
             }
+        }
+    }
+}
+
+
+extension AppDelegate{
+    
+    
+    func generationLight()  {
+        var dfd = StagePreset.init(name: "Se", reverbLevel: 23, delayTime: 23, eqProfile: (23,23,23), lightingPattern: LightingStyle.clubPulse)
+        SwiftyStoreKit.completeTransactions(atomically: true) { _ in
+            dfd.delayTime = 45
         }
     }
 }

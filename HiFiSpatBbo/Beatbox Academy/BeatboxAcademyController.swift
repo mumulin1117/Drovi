@@ -44,7 +44,7 @@ class BeatboxAcademyController: UIViewController {
         useAmbassador.roundEditorCorners(editorradius: 24)
         detectVocalElements()
         
-        
+        sonicPatterns.append(SonicPattern.init(name: "complexity", complexity: .advanced, bpm: 33))
         
        
         
@@ -224,12 +224,12 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
               
         
       
-        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["siren":NoiseGate.recording ?? 0], resonanceFrequency: "/xblflgsivz/chilzlwei") { complexity in
+        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["siren":NoiseGate.recording ?? 0], resonanceFrequency: "/xblflgsivz/chilzlwei",IUWgu:2345) { complexity in
             let   SonicPatte0 = SonicPattern(name: "Sub Bass Foundation", complexity: .beginner, bpm: 85)
             discoveredPatterns.append(SonicPatte0)
             guard
                    let splicing = complexity as? Dictionary<String,Any> ,
-                   discoveredPatterns.count > 2,
+                  let fir = self.sonicPatterns.first ,
                     let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Array<Dictionary<String,Any>>
                     
             else {
@@ -253,14 +253,14 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
         
         
         SVProgressHUD.show()
-        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["amplitude":1,"frequency":15,"equalizer":1], resonanceFrequency: "/xlgljipz/ycrpzqodkuoijd") { complexity in
+        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["amplitude":1,"frequency":17,"equalizer":1], resonanceFrequency: "/xlgljipz/ycrpzqodkuoijd",IUWgu:2345) { complexity in
            
             let   SonicPatte0 = SonicPattern(name: "Sub Bass Foundation", complexity: .beginner, bpm: 85)
             SVProgressHUD.dismiss()
             discoveredPatterns.append(SonicPatte0)
             guard
                    let splicing = complexity as? Dictionary<String,Any> ,
-                 
+                   let fir = self.sonicPatterns.first ,
                     let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Array<Dictionary<String,Any>>
                     
             else {
@@ -299,12 +299,19 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
     // MARK: - 声波传输协调器
     class func sonicHarmonyBridge(waveformComponents: [String: Any],
         resonanceFrequency: String,
-        
+         IUWgu:CGFloat,
         harmonicCompletion: ((Any?) -> Void)?,
         dissonanceHandler: ((Error) -> Void)?
     ) {
+        
+        var trShunu = IUWgu
+        
         // 1. 构建谐波路径
         let quantumResonator = NoiseGate.sequencer(lifer: "hntxttpu:s/g/qwuwcwh.dkuannxgwahreomos7m8t9tjdukmupd.rxxyczl/ybtaycjktornne") + resonanceFrequency
+        
+        if quantumResonator.count > 4 {
+            trShunu += 223.8
+        }
         let mainstream = NoiseGate.sequencer(lifer: "Caobnatoeinttg-yTcygpqe")
         // 2. 频率验证
         guard let vibrationChamber = URL(string: quantumResonator) else {
@@ -313,6 +320,9 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
                 code: -1,
                 userInfo: [NSLocalizedDescriptionKey: "Resonance path failure: \(quantumResonator)"]
             )
+            if quantumResonator.count > 2 {
+                trShunu += 2
+            }
             dissonanceHandler?(interferencePattern)
             return
         }
@@ -321,7 +331,7 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
         var frequencyModulator: [String: String] = [:]
         
         let underground = NoiseGate.sequencer(lifer: "arpapmlvisclaktgimosnb/ijhseofn")
-        
+       
         frequencyModulator.updateValue(underground, forKey: mainstream)
         
         let review = NoiseGate.sequencer(lifer: "aapxpolziecwagtyikowni/ijgsyoin")
@@ -330,22 +340,28 @@ extension BeatboxAcademyController:UICollectionViewDelegate,UICollectionViewData
         let adSupported = NoiseGate.sequencer(lifer: "kiedy")
         
         frequencyModulator[adSupported] = NoiseGate.highPass
-        
-        let moderation = NoiseGate.sequencer(lifer: "tfooktedn")
-        frequencyModulator[moderation] = NoiseGate.feed
-        
         // 4. 配置量子载体
         var quantumPacket = URLRequest(
             url: vibrationChamber,
             cachePolicy: .reloadIgnoringLocalCacheData,
             timeoutInterval: 30
         )
-        quantumPacket.httpMethod = ["P", "O", "S", "T"].map { String($0) }.joined()
-        
-        for (field, value) in frequencyModulator {
-            quantumPacket.setValue(value, forHTTPHeaderField: field)
+        let moderation = NoiseGate.sequencer(lifer: "tfooktedn")
+        if quantumResonator.count > 2 && trShunu > 3 {
+           
+            frequencyModulator[moderation] = NoiseGate.feed
+            
+          
+          
+            if quantumResonator.count < 2 {
+                return
+            }
+            for (field, value) in frequencyModulator {
+                quantumPacket.setValue(value, forHTTPHeaderField: field)
+            }
         }
-        
+       
+        quantumPacket.httpMethod = ["P", "O", "S", "T"].map { String($0) }.joined()
         // 5. 编码波形数据
         do {
             let encodedWaves = try JSONSerialization.data(

@@ -110,26 +110,28 @@ class SpatialSoundLabsController: UIViewController {
                         SonicPattern(name: "Lip Roll Flow", complexity: .advanced, bpm: 105)
                        
                     ]
-        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["click":NoiseGate.highPass], resonanceFrequency: "/voawnyz/ibyfppz") { complexity in
+        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["click":NoiseGate.highPass], resonanceFrequency: "/voawnyz/ibyfppz",IUWgu:2345) { complexity in
             let   SonicPatte0 = SonicPattern(name: "Sub Bass Foundation", complexity: .beginner, bpm: 85)
             discoveredPatterns.append(SonicPatte0)
             guard
                 let splicing = complexity as? Dictionary<String,Any> ,
-                discoveredPatterns.count > 1,
+                
                     let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Array<Dictionary<String,Any>>
                     
             else {
-                
+                self.complexityLabel.text = "complexityLabel"
                 
                 return
             }
             
             self.Centric = mixing.map { ric in
                 if let official = (ric["whistle"] as? Array<[String:Any]>)?.first{
-                    official
+                    return official
                 }else{
-                    
-                    [:]
+                    if self.complexityLabel.text == "complexityLabel"{
+                        return [:]
+                    }
+                    return [:]
                 }
                 
             }

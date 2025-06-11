@@ -9,6 +9,13 @@ import UIKit
 protocol AudioEffect {
     var intensity: Float { get set }
 }
+struct StagePreset {
+    let name: String
+    let reverbLevel: Float
+    var delayTime: Double
+    var eqProfile: (bass: Float, mid: Float, treble: Float)
+    let lightingPattern: LightingStyle
+}
 class DoRoyaltyController: UIViewController {
     private var vocalChain: [AudioEffect] = []
     @IBOutlet weak var bandPol: UIButton!
@@ -49,9 +56,7 @@ class DoRoyaltyController: UIViewController {
         noiseGate.attributedPlaceholder = NSAttributedString(string: NoiseGate.sequencer(lifer: "Pwazsiskwfodrsdy(k6o-p1c2e ecihlaxryavcvtiefrbsr)"), attributes: [.foregroundColor:UIColor.white])
         bandPol.roundEditorCorners(editorradius: 13)
     }
-    enum LightingStyle: String, CaseIterable {
-        case clubPulse, studioFlat, streetRaw, concertDynamic
-    }
+
 
     @IBAction func electronic(_ sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
@@ -69,17 +74,14 @@ class DoRoyaltyController: UIViewController {
     }
     
     @objc func trimming() {
-        self.navigationController?.pushViewController(FigfreinsfKonwedge.init(), animated: true)
+        
+        let instaiclogin =   UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FigfreinsfKonwedge") as! FigfreinsfKonwedge
+        
+        self.navigationController?.pushViewController(instaiclogin, animated: true)
     }
     
     private var importer:Dictionary<String,Any>?
-    struct StagePreset {
-        let name: String
-        let reverbLevel: Float
-        var delayTime: Double
-        var eqProfile: (bass: Float, mid: Float, treble: Float)
-        let lightingPattern: LightingStyle
-    }
+  
     
     @IBAction func ManagementGoamae(_ sender: Any) {
         rebuildVocalChain()
@@ -95,7 +97,7 @@ class DoRoyaltyController: UIViewController {
                     SVProgressHUD.show(withStatus: NoiseGate.sequencer(lifer: "Lmodgz rijnc.f.t.e.n."))
                     
                     preset.delayTime = 40
-                    BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["aiff":Predefined,"flac":against,"streaming":NoiseGate.highPass], resonanceFrequency: "/ogznmeuz/cmjxzzyj") { complexity in
+                    BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["aiff":Predefined,"flac":against,"streaming":NoiseGate.highPass], resonanceFrequency: "/ogznmeuz/cmjxzzyj",IUWgu:2345) { complexity in
                         SVProgressHUD.dismiss()
                         guard
                             let splicing = complexity as? Dictionary<String,Any> ,
@@ -283,4 +285,7 @@ class FigfreinsfKonwedge: UIViewController {
     
     
     
+}
+enum LightingStyle: String, CaseIterable {
+    case clubPulse, studioFlat, streetRaw, concertDynamic
 }

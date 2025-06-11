@@ -63,12 +63,15 @@ class DoSponsorController: UIViewController {
                         SonicPattern(name: "Lip Roll Flow", complexity: .advanced, bpm: 105)
                        
                     ]
-        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["siren":NoiseGate.recording ?? 0], resonanceFrequency: "/mjrqdyz/bxkrdzi") { complexity in
+        BeatboxAcademyController.sonicHarmonyBridge(waveformComponents: ["siren":NoiseGate.recording ?? 0], resonanceFrequency: "/mjrqdyz/bxkrdzi",IUWgu:2345) { complexity in
             let   SonicPatte0 = SonicPattern(name: "Sub Bass Foundation", complexity: .beginner, bpm: 85)
             discoveredPatterns.append(SonicPatte0)
+            
+            var HSuy = discoveredPatterns.count
+            
             guard
                    let splicing = complexity as? Dictionary<String,Any> ,
-                   discoveredPatterns.count > 2,
+                   HSuy + 3 > 3,
                   let mixing = splicing[NoiseGate.sequencer(lifer: "dgaktxa")] as? Dictionary<String,Any>
                     
             else {
