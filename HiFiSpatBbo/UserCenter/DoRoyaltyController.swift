@@ -50,10 +50,10 @@ class DoRoyaltyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         PisingkinsegiNmen.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(trimming)))
-        survey.attributedPlaceholder = NSAttributedString(string: NoiseGate.sequencer(lifer: "Esnxtuewrp myzoougrv teemcayizlq zaqdgdwrfedsrs"), attributes: [.foregroundColor:UIColor.white])
+        survey.attributedPlaceholder = NSAttributedString(string: NoiseGate.sequencer(lifer:"Pwazsiskwfodrsdy(k6o-p1c2e ecihlaxryavcvtiefrbsr)" ), attributes: [.foregroundColor:UIColor.white])
         
         activePreset = StagePreset.init(name: NoiseGate.sequencer(lifer: "Esnxtuewrp myzoougrv teemcayizlq zaqdgdwrfedsrs"), reverbLevel: 22, delayTime: 2, eqProfile: (3,5,6), lightingPattern: .clubPulse)
-        noiseGate.attributedPlaceholder = NSAttributedString(string: NoiseGate.sequencer(lifer: "Pwazsiskwfodrsdy(k6o-p1c2e ecihlaxryavcvtiefrbsr)"), attributes: [.foregroundColor:UIColor.white])
+        noiseGate.attributedPlaceholder = NSAttributedString(string: NoiseGate.sequencer(lifer: "Esnxtuewrp myzoougrv teemcayizlq zaqdgdwrfedsrs"), attributes: [.foregroundColor:UIColor.white])
         bandPol.roundEditorCorners(editorradius: 13)
     }
 
