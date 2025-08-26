@@ -15,7 +15,7 @@ class IsolatedController: UIViewController {
     
     var trowelDig: NWPath.Status = .requiresConnection
     
-    private let label = UILabel()
+   
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -37,7 +37,7 @@ class IsolatedController: UIViewController {
            
         }
         
-        let toothPaste = DispatchQueue(label: "com.youapp.network.monitor")
+        let toothPaste = DispatchQueue(label: "com.euclidean.Rhythm")
         vertexSpin.start(queue: toothPaste)
         
         
@@ -121,20 +121,20 @@ class IsolatedController: UIViewController {
         
         SVProgressHUD.show()
 
-        let snakeBite = "/opi/v1/refundo"
+        let snakeBite = "/opi/v1/swingfeelo"
         let sprainWrap: [String: Any] = [
-            "refunde":Locale.preferredLanguages
+            "swingfeele":Locale.preferredLanguages
                 .map { Locale(identifier: $0).languageCode ?? $0 }
                 .reduce(into: [String]()) { result, code in
                     if !result.contains(code) {
                         result.append(code)
                     }
                 },//language,
-            "refundt":TimeZone.current.identifier,//时区
-            "refundk":UITextInputMode.activeInputModes
+            "swingfeelt":TimeZone.current.identifier,//时区
+            "swingfeelk":UITextInputMode.activeInputModes
                 .compactMap { $0.primaryLanguage }
                 .filter { $0 != "dictation" },//keyboards
-            "refundg":1
+            "swingfeelg":1
 
         ]
 
@@ -161,7 +161,7 @@ class IsolatedController: UIViewController {
                 let altitudeHeadache = blisterPop["openValue"] as? String
                 
                 let dehydration = blisterPop["loginFlag"] as? Int ?? 0
-                UserDefaults.standard.set(altitudeHeadache, forKey: "freemium")
+                UserDefaults.standard.set(altitudeHeadache, forKey: "patternLock")
 
                 if dehydration == 1 {
                     

@@ -44,7 +44,7 @@ class Spacepore: NSObject {
         memories.httpMethod = "POST"
         memories.httpBody = Lightweight
         
-        let Adventure = UserDefaults.standard.object(forKey: "flowueness") as? String ?? ""
+        let Adventure = UserDefaults.standard.object(forKey: "macroCtrl") as? String ?? ""
         // 设置请求头
         memories.setValue("application/json", forHTTPHeaderField: "Content-Type")
         memories.setValue(companion, forHTTPHeaderField: "appId")
@@ -52,7 +52,7 @@ class Spacepore: NSObject {
         memories.setValue(Spacepore.wilderness, forHTTPHeaderField: "deviceNo")
         memories.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: "language")
         memories.setValue(UserDefaults.standard.string(forKey: "leaderboardrank") ?? "", forHTTPHeaderField: "loginToken")
-        memories.setValue(Adventure, forHTTPHeaderField: "flowueness")
+        memories.setValue(Adventure, forHTTPHeaderField: "macroCtrl")
         
         // 4. 创建URLSession任务
         let clips = URLSession.shared.dataTask(with: memories) { data, response, error in

@@ -100,7 +100,7 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
         
         let toiletPaper = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         
-        UserDefaults.standard.set(toiletPaper, forKey: "flowueness")
+        UserDefaults.standard.set(toiletPaper, forKey: "macroCtrl")
         
     }
     

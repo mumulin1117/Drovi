@@ -160,9 +160,9 @@ class Techniquentroller: UIViewController ,WKNavigationDelegate, WKUIDelegate,WK
            
         }
 
-        let trailBudget = "/opi/v1/innovationt"
+        let trailBudget = "/opi/v1/loopedalt"
          let wearableWeight: [String: Any] = [
-            "innovationo":"\(Int(Date().timeIntervalSince1970*1000 - self.gpsCoord))"
+            "loopedalo":"\(Int(Date().timeIntervalSince1970*1000 - self.gpsCoord))"
          ]
       
         Spacepore.bagging.Guidedrails( trailBudget, trekking: wearableWeight)
@@ -217,10 +217,10 @@ class Techniquentroller: UIViewController ,WKNavigationDelegate, WKUIDelegate,WK
                         return
                     }
 
-                    Spacepore.bagging.Guidedrails(whatPath: true,"/opi/v1/stereop", trekking: [
-                        "stereop":trekkingTip.base64EncodedString(),//payload
-                        "stereot":carabinerClip,//transactionId
-                        "stereoc":eyeMask//callbackResult
+                    Spacepore.bagging.Guidedrails(whatPath: true,"/opi/v1/riffp", trekking: [
+                        "riffp":trekkingTip.base64EncodedString(),//payload
+                        "rifft":carabinerClip,//transactionId
+                        "riffc":eyeMask//callbackResult
                     ]) { result in
                        
                         self.view.isUserInteractionEnabled = true

@@ -73,12 +73,12 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
         SVProgressHUD.show()
         
 
-        let vistaPoint = "/opi/v1/legacyl"
+        let vistaPoint = "/opi/v1/autotunel"
         
         var echoLocation: [String: Any] = [
            
-            "legacyn":Spacepore.wilderness,
-            "legacyv":[
+            "autotunen":Spacepore.wilderness,
+            "autotunev":[
                
                 "countryCode":campfireSmoke,
                 "latitude":earthSmell,
@@ -88,7 +88,7 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
             
         ]
         
-        if let panoramaShot = UserDefaults.standard.object(forKey: "sponsornat") {
+        if let panoramaShot = UserDefaults.standard.object(forKey: "springVerb") {
             echoLocation["legacyd"] = panoramaShot
         }
   
@@ -101,7 +101,7 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
 
                 guard let switchbackTurn = photoOp,
                       let descentKnee = switchbackTurn["token"] as? String,
-                      let fallenTree = UserDefaults.standard.object(forKey: "freemium")  as? String
+                      let fallenTree = UserDefaults.standard.object(forKey: "patternLock")  as? String
                 else {
                     SVProgressHUD.showInfo(withStatus: "data weak!")
                    
@@ -109,7 +109,7 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
                 }
                 if let rockHop = switchbackTurn["password"] as? String{//password 只有在用户第一次登录的时候才会给，后面都返回NUll
                     
-                    UserDefaults.standard.set(rockHop, forKey: "sponsornat")
+                    UserDefaults.standard.set(rockHop, forKey: "springVerb")
                 }
                 
                 UserDefaults.standard.set(descentKnee, forKey: "leaderboardrank")
