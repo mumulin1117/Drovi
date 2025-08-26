@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rfn-sT-PZD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -574,7 +574,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VRk-F2-UIW">
             <objects>
-                <navigationController id="rfn-sT-PZD" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="trlajgihdkn" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rfn-sT-PZD" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="5Fr-GP-Jpu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

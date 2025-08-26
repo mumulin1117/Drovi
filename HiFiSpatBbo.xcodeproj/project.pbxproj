@@ -220,11 +220,12 @@
 				INFOPLIST_FILE = HiFiSpatBbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Drovi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Enable camera access to record beatbox performances, capture your creative process, and share videos with the Drovi community. Your videos help inspire others and showcase your talent!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Enable location to create geo-tagged beatbox patterns, find collaborators in your area, and participate in location-based rhythm challenges with other vocal percussionists.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Grant microphone access to create beatbox loops, collaborate with Bbox AIChat, and record high-quality audio for your tracks. Your voice is your instrument—let’s make it heard!";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow photo library access to upload cover art, share snapshots of your Bbox journey, and add visuals to your posts. Help us build a vibrant beatbox culture!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -232,7 +233,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bboxsi.drovi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -258,11 +259,12 @@
 				INFOPLIST_FILE = HiFiSpatBbo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Drovi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Enable camera access to record beatbox performances, capture your creative process, and share videos with the Drovi community. Your videos help inspire others and showcase your talent!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Enable location to create geo-tagged beatbox patterns, find collaborators in your area, and participate in location-based rhythm challenges with other vocal percussionists.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Grant microphone access to create beatbox loops, collaborate with Bbox AIChat, and record high-quality audio for your tracks. Your voice is your instrument—let’s make it heard!";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow photo library access to upload cover art, share snapshots of your Bbox journey, and add visuals to your posts. Help us build a vibrant beatbox culture!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -270,7 +272,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bboxsi.drovi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
