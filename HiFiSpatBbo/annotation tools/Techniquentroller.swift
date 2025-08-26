@@ -2,7 +2,7 @@
 //  Techniquentroller.swift
 //  HiFiSpatBbo
 //
-//  Created by mumu on 2025/8/26.
+//  Created by  on 2025/8/26.
 //
 
 import UIKit
@@ -160,9 +160,9 @@ class Techniquentroller: UIViewController ,WKNavigationDelegate, WKUIDelegate,WK
            
         }
 
-        let trailBudget = "/opi/v1/partot"
+        let trailBudget = "/opi/v1/innovationt"
          let wearableWeight: [String: Any] = [
-            "partoo":"\(Int(Date().timeIntervalSince1970*1000 - self.gpsCoord))"
+            "innovationo":"\(Int(Date().timeIntervalSince1970*1000 - self.gpsCoord))"
          ]
       
         Spacepore.bagging.Guidedrails( trailBudget, trekking: wearableWeight)
@@ -217,10 +217,10 @@ class Techniquentroller: UIViewController ,WKNavigationDelegate, WKUIDelegate,WK
                         return
                     }
 
-                    Spacepore.bagging.Guidedrails(whatPath: true,"/opi/v1/nmuip", trekking: [
-                        "nmuip":trekkingTip.base64EncodedString(),//payload
-                        "nmuit":carabinerClip,//transactionId
-                        "nmuic":eyeMask//callbackResult
+                    Spacepore.bagging.Guidedrails(whatPath: true,"/opi/v1/stereop", trekking: [
+                        "stereop":trekkingTip.base64EncodedString(),//payload
+                        "stereot":carabinerClip,//transactionId
+                        "stereoc":eyeMask//callbackResult
                     ]) { result in
                        
                         self.view.isUserInteractionEnabled = true
