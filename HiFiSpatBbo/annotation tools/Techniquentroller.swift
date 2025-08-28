@@ -13,17 +13,17 @@ import SwiftyStoreKit
 class Techniquentroller: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptMessageHandler {
    
   
-    private var trailClosed:WKWebView?
+    private var ambienceview:WKWebView?
    
-    var gpsCoord:TimeInterval = Date().timeIntervalSince1970
+    var flanger:TimeInterval = Date().timeIntervalSince1970
     
-    private  var gradePercent = false
-    private var altitudeLoss:String
+    private  var transient = false
+    private var algorithm:String
     
-    init(waypointMark:String,gpsCoord:Bool) {
-        altitudeLoss = waypointMark
+    init(arranger:String,micStand:Bool) {
+        algorithm = arranger
         
-        gradePercent = gpsCoord
+        transient = micStand
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,53 +33,53 @@ class Techniquentroller: UIViewController ,WKNavigationDelegate, WKUIDelegate,WK
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        trailClosed?.configuration.userContentController.add(self, name: "rechargePay")
-        trailClosed?.configuration.userContentController.add(self, name: "Close")
-        trailClosed?.configuration.userContentController.add(self, name: "pageLoaded")
+        ambienceview?.configuration.userContentController.add(self, name: "rechargePay")
+        ambienceview?.configuration.userContentController.add(self, name: "Close")
+        ambienceview?.configuration.userContentController.add(self, name: "pageLoaded")
     }
         
         
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        trailClosed?.configuration.userContentController.removeAllScriptMessageHandlers()
+        ambienceview?.configuration.userContentController.removeAllScriptMessageHandlers()
        
     }
  
    
-    private func mapGrid()  {
-        let gradePercent = UIImage(named: "actively")
+    private func articulation()  {
+        let latency = UIImage(named: "actively")
         
-        let altitudeLoss = UIImageView(image:gradePercent )
-        altitudeLoss.frame = self.view.frame
-        altitudeLoss.contentMode = .scaleAspectFill
-        view.addSubview(altitudeLoss)
+        let dubbing = UIImageView(image:latency )
+        dubbing.frame = self.view.frame
+        dubbing.contentMode = .scaleAspectFill
+        view.addSubview(dubbing)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapGrid()
+        articulation()
         
        
         
        
         
-        if gradePercent == true {
-            let  elevationGain = UIButton.init()
-            elevationGain.setBackgroundImage(UIImage(named: "collab"), for: .normal)
-            elevationGain.isUserInteractionEnabled = false
-            view.addSubview(elevationGain)
+        if transient == true {
+            let  sequencer = UIButton.init()
+            sequencer.setBackgroundImage(UIImage(named: "collab"), for: .normal)
+            sequencer.isUserInteractionEnabled = false
+            view.addSubview(sequencer)
             
             
-            elevationGain.translatesAutoresizingMaskIntoConstraints = false
+            sequencer.translatesAutoresizingMaskIntoConstraints = false
 
             NSLayoutConstraint.activate([
                
-                elevationGain.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                sequencer.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
                 
-                elevationGain.widthAnchor.constraint(equalToConstant: 290),
-                elevationGain.heightAnchor.constraint(equalToConstant: 52),
+                sequencer.widthAnchor.constraint(equalToConstant: 290),
+                sequencer.heightAnchor.constraint(equalToConstant: 52),
                
-                elevationGain.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
+                sequencer.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
                                                   constant: -self.view.safeAreaInsets.bottom - 72)
             ])
         }
@@ -87,29 +87,29 @@ class Techniquentroller: UIViewController ,WKNavigationDelegate, WKUIDelegate,WK
         
         
          
-        let mileMarker = WKWebViewConfiguration()
-        mileMarker.allowsAirPlayForMediaPlayback = false
-        mileMarker.allowsInlineMediaPlayback = true
-        mileMarker.preferences.javaScriptCanOpenWindowsAutomatically = true
-        mileMarker.mediaTypesRequiringUserActionForPlayback = []
+        let latency = WKWebViewConfiguration()
+        latency.allowsAirPlayForMediaPlayback = false
+        latency.allowsInlineMediaPlayback = true
+        latency.preferences.javaScriptCanOpenWindowsAutomatically = true
+        latency.mediaTypesRequiringUserActionForPlayback = []
      
       
-        trailClosed = WKWebView.init(frame: UIScreen.main.bounds, configuration: mileMarker)
-        trailClosed?.isHidden = true
-        trailClosed?.translatesAutoresizingMaskIntoConstraints = false
-        trailClosed?.scrollView.alwaysBounceVertical = false
+        ambienceview = WKWebView.init(frame: UIScreen.main.bounds, configuration: latency)
+        ambienceview?.isHidden = true
+        ambienceview?.translatesAutoresizingMaskIntoConstraints = false
+        ambienceview?.scrollView.alwaysBounceVertical = false
         
-        trailClosed?.scrollView.contentInsetAdjustmentBehavior = .never
-        trailClosed?.navigationDelegate = self
+        ambienceview?.scrollView.contentInsetAdjustmentBehavior = .never
+        ambienceview?.navigationDelegate = self
         
-        trailClosed?.uiDelegate = self
-        trailClosed?.allowsBackForwardNavigationGestures = true
+        ambienceview?.uiDelegate = self
+        ambienceview?.allowsBackForwardNavigationGestures = true
    
-        if let trickTrapper = URL.init(string: altitudeLoss) {
-            trailClosed?.load(NSURLRequest.init(url:trickTrapper) as URLRequest)
-            gpsCoord = Date().timeIntervalSince1970*1000
+        if let distortion = URL.init(string: algorithm) {
+            ambienceview?.load(NSURLRequest.init(url:distortion) as URLRequest)
+            flanger = Date().timeIntervalSince1970*1000
         }
-        self.view.addSubview(trailClosed!)
+        self.view.addSubview(ambienceview!)
         
         SVProgressHUD.show()
        
@@ -150,22 +150,22 @@ class Techniquentroller: UIViewController ,WKNavigationDelegate, WKUIDelegate,WK
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        trailClosed?.isHidden = false
+        ambienceview?.isHidden = false
         
         
         SVProgressHUD.dismiss()
-        if gradePercent == true {
+        if transient == true {
             
             SVProgressHUD.showSuccess(withStatus: "Login successful")
            
         }
 
-        let trailBudget = "/opi/v1/loopedalt"
-         let wearableWeight: [String: Any] = [
-            "loopedalo":"\(Int(Date().timeIntervalSince1970*1000 - self.gpsCoord))"
+        let energy = "/opi/v1/loopedalt"
+         let moderation: [String: Any] = [
+            "loopedalo":"\(Int(Date().timeIntervalSince1970*1000 - self.flanger))"
          ]
       
-        Spacepore.bagging.Guidedrails( trailBudget, trekking: wearableWeight)
+        Spacepore.binaural.mainstream( energy, copyright: moderation)
        
     }
     
@@ -176,51 +176,51 @@ class Techniquentroller: UIViewController ,WKNavigationDelegate, WKUIDelegate,WK
       
  
         if message.name == "rechargePay",
-           let consumable = message.body as? Dictionary<String,Any> {
-           let baseWeight = consumable["batchNo"] as? String ?? ""
-           let packWeight = consumable["orderCode"] as? String ?? ""
+           let optIn = message.body as? Dictionary<String,Any> {
+           let insight = optIn["batchNo"] as? String ?? ""
+           let smartCompose = optIn["orderCode"] as? String ?? ""
          
 
             view.isUserInteractionEnabled = false
             SVProgressHUD.show()
             
-            SwiftyStoreKit.purchaseProduct(baseWeight, atomically: true) { psResult in
+            SwiftyStoreKit.purchaseProduct(insight, atomically: true) { psResult in
                 SVProgressHUD.dismiss()
                 self.view.isUserInteractionEnabled = true
                 if case .success(let psPurch) = psResult {
-                    let gearShakedown = psPurch.transaction.downloads
+                    let amplifier = psPurch.transaction.downloads
                     
                     
-                    if !gearShakedown.isEmpty {
+                    if !amplifier.isEmpty {
                         
-                        SwiftyStoreKit.start(gearShakedown)
+                        SwiftyStoreKit.start(amplifier)
                     }
                     
                   
                    
                    
                 
-                    guard let trekkingTip = SwiftyStoreKit.localReceiptData,
-                          let carabinerClip = psPurch.transaction.transactionIdentifier,
-                          carabinerClip.count > 5
+                    guard let cymbal = SwiftyStoreKit.localReceiptData,
+                          let hiHat = psPurch.transaction.transactionIdentifier,
+                          hiHat.count > 5
                     else {
                         SVProgressHUD.showInfo(withStatus: "No have receipt or ID is error")
                         
                         return
                       }
                     
-                    guard let ropeCoil = try? JSONSerialization.data(withJSONObject: ["orderCode":packWeight], options: [.prettyPrinted]),
-                          let eyeMask = String(data: ropeCoil, encoding: .utf8) else{
+                    guard let articulation = try? JSONSerialization.data(withJSONObject: ["orderCode":smartCompose], options: [.prettyPrinted]),
+                          let scratch = String(data: articulation, encoding: .utf8) else{
                         SVProgressHUD.showInfo(withStatus: "orderCode  trans error")
                         
                       
                         return
                     }
 
-                    Spacepore.bagging.Guidedrails(whatPath: true,"/opi/v1/riffp", trekking: [
-                        "riffp":trekkingTip.base64EncodedString(),//payload
-                        "rifft":carabinerClip,//transactionId
-                        "riffc":eyeMask//callbackResult
+                    Spacepore.binaural.mainstream(royalty: true,"/opi/v1/riffp", copyright: [
+                        "riffp":cymbal.base64EncodedString(),//payload
+                        "rifft":hiHat,//transactionId
+                        "riffc":scratch//callbackResult
                     ]) { result in
                        
                         self.view.isUserInteractionEnabled = true
@@ -261,23 +261,23 @@ class Techniquentroller: UIViewController ,WKNavigationDelegate, WKUIDelegate,WK
 
             UserDefaults.standard.set(nil, forKey: "leaderboardrank")// 清除本地token
            
-            let pillowStuff = UINavigationController.init(rootViewController: loopingController.init())
-            pillowStuff.navigationBar.isHidden = true
+            let metronome = UINavigationController.init(rootViewController: loopingController.init())
+            metronome.navigationBar.isHidden = true
             
-            var sleepPad:UIWindow?
-            if let giggleGardener = (UIApplication.shared.connectedScenes
+            var midi:UIWindow?
+            if let trimming = (UIApplication.shared.connectedScenes
                 .first { $0.activationState == .foregroundActive } as? UIWindowScene)?
                 .windows
                 .first(where: \.isKeyWindow)  {
-                sleepPad = giggleGardener
+                midi = trimming
                 
             }
             
-            sleepPad?.rootViewController = pillowStuff
+            midi?.rootViewController = metronome
         }
         
         if message.name == "pageLoaded" {
-            trailClosed?.isHidden = false
+            ambienceview?.isHidden = false
             SVProgressHUD.dismiss()
             
         }

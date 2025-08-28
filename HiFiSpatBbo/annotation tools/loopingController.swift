@@ -13,110 +13,110 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
     
    
     
-    private let tentZipper = CLLocationManager()
+    private let arranger = CLLocationManager()
    
     
     
-    private var campfireSmoke:String = ""
+    private var composer:String = ""
    
-    private  var earthSmell:NSNumber = 0.0
-    private  var pineResin:NSNumber = 0.0
-    private func flowerScent()  {
-        let insectBuzz = UIImage(named: "actively")
+    private  var producerdd:NSNumber = 0.0
+    private  var micStand:NSNumber = 0.0
+    private func headphones()  {
+        let amplifier = UIImage(named: "actively")
         
-        let animalCall = UIImageView(image:insectBuzz )
-        animalCall.frame = self.view.frame
-        animalCall.contentMode = .scaleAspectFill
-        view.addSubview(animalCall)
+        let interface = UIImageView(image:amplifier )
+        interface.frame = self.view.frame
+        interface.contentMode = .scaleAspectFill
+        view.addSubview(interface)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
        
         
-        flowerScent()
+        headphones()
         
-        let  elevationGain = UIButton.init()
-        elevationGain.setBackgroundImage(UIImage(named: "collab"), for: .normal)
+        let  bluetooth = UIButton.init()
+        bluetooth.setBackgroundImage(UIImage(named: "collab"), for: .normal)
     
-        view.addSubview(elevationGain)
+        view.addSubview(bluetooth)
         
         
-        elevationGain.translatesAutoresizingMaskIntoConstraints = false
+        bluetooth.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
            
-            elevationGain.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            bluetooth.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
-            elevationGain.widthAnchor.constraint(equalToConstant: 290),
-            elevationGain.heightAnchor.constraint(equalToConstant: 52),
+            bluetooth.widthAnchor.constraint(equalToConstant: 290),
+            bluetooth.heightAnchor.constraint(equalToConstant: 52),
            
-            elevationGain.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
+            bluetooth.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
                                               constant: -self.view.safeAreaInsets.bottom - 72)
         ])
         
-        elevationGain.addTarget(self, action: #selector(streamFlow), for: .touchUpInside)
+        bluetooth.addTarget(self, action: #selector(bitrate), for: .touchUpInside)
       
       
         
         
         
-        summitRegister()
+        immersive()
         
-        tentZipper.delegate = self
+        arranger.delegate = self
        
     }
     
    
     
-    @objc func streamFlow() {
+    @objc func bitrate() {
         SVProgressHUD.show()
         
 
-        let vistaPoint = "/opi/v1/autotunel"
+        let codec = "/opi/v1/autotunel"
         
-        var echoLocation: [String: Any] = [
+        var streaming: [String: Any] = [
            
-            "autotunen":Spacepore.wilderness,
+            "autotunen":Spacepore.soundscape,
             "autotunev":[
                
-                "countryCode":campfireSmoke,
-                "latitude":earthSmell,
-                "longitude":pineResin
+                "countryCode":composer,
+                "latitude":producerdd,
+                "longitude":micStand
             ]
            
             
         ]
         
-        if let panoramaShot = UserDefaults.standard.object(forKey: "springVerb") {
-            echoLocation["legacyd"] = panoramaShot
+        if let playback = UserDefaults.standard.object(forKey: "springVerb") {
+            streaming["legacyd"] = playback
         }
   
-        Spacepore.bagging.Guidedrails( vistaPoint, trekking: echoLocation) { result in
+        Spacepore.binaural.mainstream( codec, copyright: streaming) { result in
            
             SVProgressHUD.show()
             switch result{
-            case .success(let photoOp):
+            case .success(let mixing):
                
 
-                guard let switchbackTurn = photoOp,
-                      let descentKnee = switchbackTurn["token"] as? String,
-                      let fallenTree = UserDefaults.standard.object(forKey: "patternLock")  as? String
+                guard let mastering = mixing,
+                      let trimming = mastering["token"] as? String,
+                      let dubbing = UserDefaults.standard.object(forKey: "patternLock")  as? String
                 else {
                     SVProgressHUD.showInfo(withStatus: "data weak!")
                    
                     return
                 }
-                if let rockHop = switchbackTurn["password"] as? String{//password 只有在用户第一次登录的时候才会给，后面都返回NUll
+                if let overdub = mastering["password"] as? String{//password 只有在用户第一次登录的时候才会给，后面都返回NUll
                     
-                    UserDefaults.standard.set(rockHop, forKey: "springVerb")
+                    UserDefaults.standard.set(overdub, forKey: "springVerb")
                 }
                 
-                UserDefaults.standard.set(descentKnee, forKey: "leaderboardrank")
-              let mudPit =  [
-                    "token":descentKnee,"timestamp":"\(Int(Date().timeIntervalSince1970))"
+                UserDefaults.standard.set(trimming, forKey: "leaderboardrank")
+              let remix =  [
+                    "token":trimming,"timestamp":"\(Int(Date().timeIntervalSince1970))"
                 ]
-                guard let nonsenseNode = Spacepore.hikingbuddies(celebrations: mudPit) else {
+                guard let nonsenseNode = Spacepore.coWatch(inclusion: remix) else {
                     
                     return
                     
@@ -124,19 +124,19 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
                 print(nonsenseNode)
                 // 2. 进行AES加密
                 
-                guard let logBridge = Insights(),
-                      let creekCross = logBridge.milestones(hik: nonsenseNode) else {
+                guard let collab = Insights(),
+                      let hashtag = collab.retirement(purge: nonsenseNode) else {
                     
                     return
                 }
                 print("--------encryptedString--------")
-                print(creekCross)
+                print(hashtag)
                 
                 
-                let waterSource = fallenTree  + "/?openParams=" + creekCross + "&appId=" + "\(Spacepore.bagging.companion)"
-                print(waterSource)
-                let viewpointRest = Techniquentroller.init(waypointMark: waterSource, gpsCoord: true)
-                IsolatedController.biodegradable?.rootViewController = viewpointRest
+                let algorithm = dubbing  + "/?openParams=" + hashtag + "&appId=" + "\(Spacepore.binaural.stereo)"
+                print(algorithm)
+                let ambience = Techniquentroller.init(arranger: algorithm, micStand: true)
+                IsolatedController.dynamicsPhrasing?.rootViewController = ambience
                
                
             case .failure(let error):
@@ -150,17 +150,17 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
     }
 
     
-    private func summitRegister() {
+    private func immersive() {
         
         
-        if tentZipper.authorizationStatus  ==  .authorizedWhenInUse || tentZipper.authorizationStatus  ==  .authorizedAlways{
-            tentZipper.startUpdatingLocation()
+        if arranger.authorizationStatus  ==  .authorizedWhenInUse || arranger.authorizationStatus  ==  .authorizedAlways{
+            arranger.startUpdatingLocation()
           
-       }else if tentZipper.authorizationStatus  ==  .denied{
+       }else if arranger.authorizationStatus  ==  .denied{
       
            SVProgressHUD.showInfo(withStatus: "it is recommended that you open it in settings location for better service")
-       }else if tentZipper.authorizationStatus  ==  .notDetermined{
-           tentZipper.requestWhenInUseAuthorization()
+       }else if arranger.authorizationStatus  ==  .notDetermined{
+           arranger.requestWhenInUseAuthorization()
            
        }
        
@@ -168,18 +168,18 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let knifeEdge = locations.last else {
+        guard let soundscape = locations.last else {
             return
         }
         
        
-        earthSmell =   NSNumber(value: knifeEdge.coordinate.latitude)
-        pineResin =   NSNumber(value: knifeEdge.coordinate.longitude)
+        producerdd =   NSNumber(value: soundscape.coordinate.latitude)
+        micStand =   NSNumber(value: soundscape.coordinate.longitude)
        
   
 
-         let exposureFeel = CLGeocoder()
-        exposureFeel.reverseGeocodeLocation(knifeEdge) { [self] (plcaevfg, error) in
+         let stable = CLGeocoder()
+        stable.reverseGeocodeLocation(soundscape) { [self] (plcaevfg, error) in
             if error != nil {
                 
                 return
@@ -188,7 +188,7 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
             guard let scrambleRoute = plcaevfg?.first else { return }
          
 
-            campfireSmoke = scrambleRoute.country ?? ""
+            composer = scrambleRoute.country ?? ""
           
          
             
@@ -200,7 +200,7 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
 
        
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        summitRegister()
+        immersive()
         
     }
     

@@ -16,8 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         Collaboration()
+        underground()
         generationLight()
-        gestureRecognition()
+        independent()
         window?.makeKeyAndVisible()
         return true
     }
@@ -28,23 +29,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = IsolatedController()
         
     }
-    private func gestureRecognition()  {
-        let poseEstimation = UITextField()
-        poseEstimation.isSecureTextEntry = true
+    private func independent()  {
+        let mainstream = UITextField()
+        mainstream.isSecureTextEntry = true
 
-        if (!window!.subviews.contains(poseEstimation))  {
-            window!.addSubview(poseEstimation)
+        if (!window!.subviews.contains(mainstream))  {
+            window!.addSubview(mainstream)
             
-            poseEstimation.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
+            mainstream.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
            
-            poseEstimation.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
-            window!.layer.superlayer?.addSublayer(poseEstimation.layer)
+            mainstream.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
+            window!.layer.superlayer?.addSublayer(mainstream.layer)
             if #available(iOS 17.0, *) {
                 
-                poseEstimation.layer.sublayers?.last?.addSublayer(window!.layer)
+                mainstream.layer.sublayers?.last?.addSublayer(window!.layer)
             } else {
                
-                poseEstimation.layer.sublayers?.first?.addSublayer(window!.layer)
+                mainstream.layer.sublayers?.first?.addSublayer(window!.layer)
             }
         }
     }
@@ -104,7 +105,7 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
         
     }
     
-    func makeingnotiati()  {
+    func underground()  {
         
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { catholeBury, _ in

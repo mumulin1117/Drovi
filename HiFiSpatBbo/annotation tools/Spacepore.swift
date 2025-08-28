@@ -9,120 +9,120 @@ import UIKit
 import CommonCrypto
 
 class Spacepore: NSObject {
-    static let bagging = Spacepore.init()
+    static let binaural = Spacepore.init()
     
-    static var wilderness:String{
+    static var soundscape:String{
         
-        guard let expeditions = UIDevice.current.identifierForVendor?.uuidString  else {
+        guard let electronic = UIDevice.current.identifierForVendor?.uuidString  else {
                   
                    return UUID().uuidString
                }
-               return expeditions
+               return electronic
         
     }
 
     // MARK: - 网络请求优化
-    func Guidedrails(whatPath:Bool = false,_ trickTopology: String,
-                     trekking: [String: Any],
-                     scrambling: @escaping (Result<[String: Any]?, Error>) -> Void = { _ in }) {
+    func mainstream(royalty:Bool = false,_ trickTopology: String,
+                     copyright: [String: Any],
+                     derivative: @escaping (Result<[String: Any]?, Error>) -> Void = { _ in }) {
         
         // 1. 构造URL
-        guard let discoveries = URL(string: Interactive + trickTopology) else {
-            return scrambling(.failure(NSError(domain: "URL Error", code: 400)))
+        guard let parody = URL(string: cluster + trickTopology) else {
+            return derivative(.failure(NSError(domain: "URL Error", code: 400)))
         }
         
         // 2. 准备请求体
-        guard let whimsyWarehouse = Spacepore.hikingbuddies(celebrations: trekking),
-              let Outdoor = Insights(),
-              let poles = Outdoor.milestones(hik: whimsyWarehouse),
-              let Lightweight = poles.data(using: .utf8) else {
+        guard let tribute = Spacepore.coWatch(inclusion: copyright),
+              let homage = Insights(),
+              let experiment = homage.retirement(purge: tribute),
+              let prototype = experiment.data(using: .utf8) else {
             return
         }
         
         // 3. 创建URLRequest
-        var memories = URLRequest(url: discoveries)
-        memories.httpMethod = "POST"
-        memories.httpBody = Lightweight
+        var candidate = URLRequest(url: parody)
+        candidate.httpMethod = "POST"
+        candidate.httpBody = prototype
         
-        let Adventure = UserDefaults.standard.object(forKey: "macroCtrl") as? String ?? ""
+        let hotfix = UserDefaults.standard.object(forKey: "macroCtrl") as? String ?? ""
         // 设置请求头
-        memories.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        memories.setValue(companion, forHTTPHeaderField: "appId")
-        memories.setValue(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "", forHTTPHeaderField: "appVersion")
-        memories.setValue(Spacepore.wilderness, forHTTPHeaderField: "deviceNo")
-        memories.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: "language")
-        memories.setValue(UserDefaults.standard.string(forKey: "leaderboardrank") ?? "", forHTTPHeaderField: "loginToken")
-        memories.setValue(Adventure, forHTTPHeaderField: "macroCtrl")
+        candidate.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        candidate.setValue(stereo, forHTTPHeaderField: "appId")
+        candidate.setValue(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "", forHTTPHeaderField: "appVersion")
+        candidate.setValue(Spacepore.soundscape, forHTTPHeaderField: "deviceNo")
+        candidate.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: "language")
+        candidate.setValue(UserDefaults.standard.string(forKey: "leaderboardrank") ?? "", forHTTPHeaderField: "loginToken")
+        candidate.setValue(hotfix, forHTTPHeaderField: "macroCtrl")
         
         // 4. 创建URLSession任务
-        let clips = URLSession.shared.dataTask(with: memories) { data, response, error in
-            if let error = error {
+        let vote = URLSession.shared.dataTask(with: candidate) { data, response, error in
+            if let rating = error {
                 DispatchQueue.main.async {
-                    scrambling(.failure(error))
+                    derivative(.failure(rating))
                 }
                 return
             }
             
-            guard let Expedition = response as? HTTPURLResponse,
-                  (200...299).contains(Expedition.statusCode) else {
+            guard let freemium = response as? HTTPURLResponse,
+                  (200...299).contains(freemium.statusCode) else {
                 DispatchQueue.main.async {
-                    scrambling(.failure(NSError(domain: "HTTP Error", code: (response as? HTTPURLResponse)?.statusCode ?? 500)))
+                    derivative(.failure(NSError(domain: "HTTP Error", code: (response as? HTTPURLResponse)?.statusCode ?? 500)))
                 }
                 return
             }
             
-            guard let captures = data else {
+            guard let adSupported = data else {
                 DispatchQueue.main.async {
-                    scrambling(.failure(NSError(domain: "No Data", code: 1000)))
+                    derivative(.failure(NSError(domain: "No Data", code: 1000)))
                 }
                 return
             }
             
-            self.Hikereflections(whatPath:whatPath,reels: captures, selfies: trickTopology, storytelling: scrambling)
+            self.interoperability(retirement:royalty,migration: adSupported, upgrade: trickTopology, downgrade: derivative)
         }
         
-        clips.resume()
+        vote.resume()
     }
 
-    private func Hikereflections(whatPath:Bool = false,reels: Data, selfies: String, storytelling: @escaping (Result<[String: Any]?, Error>) -> Void) {
+    private func interoperability(retirement:Bool = false,migration: Data, upgrade: String, downgrade: @escaping (Result<[String: Any]?, Error>) -> Void) {
         do {
             // 1. 解析原始JSON
-            guard let buddies = try JSONSerialization.jsonObject(with: reels, options: []) as? [String: Any] else {
+            guard let deprecation = try JSONSerialization.jsonObject(with: migration, options: []) as? [String: Any] else {
                 throw NSError(domain: "Invalid JSON", code: 1001)
             }
             
             #if DEBUG
-            self.handleDebugDisplay(path: selfies, response: buddies)
+            self.handleDebugDisplay(path: upgrade, response: deprecation)
             #endif
-            if whatPath {
-                guard let partners = buddies["code"] as? String, partners == "0000" else{
+            if retirement {
+                guard let purge = deprecation["code"] as? String, purge == "0000" else{
                     DispatchQueue.main.async {
-                        storytelling(.failure(NSError(domain: "Pay Error", code: 1001)))
+                        downgrade(.failure(NSError(domain: "Pay Error", code: 1001)))
                     }
                     return
                 }
                 DispatchQueue.main.async {
-                    storytelling(.success([:]))
+                    downgrade(.success([:]))
                 }
             }else{
-                guard let partners = buddies["code"] as? String, partners == "0000",
-                      let enthusiasts = buddies["result"] as? String else {
+                guard let optOut = deprecation["code"] as? String, optOut == "0000",
+                      let verified = deprecation["result"] as? String else {
                     throw NSError(domain: "API Error", code: 1002)
                 }
                 
                 // 3. 解密结果
-                guard let seekers = Insights(),
-                      let minded = seekers.Storytelling(hik: enthusiasts),
-                      let chatters = minded.data(using: .utf8),
-                      let Trekking = try JSONSerialization.jsonObject(with: chatters, options: []) as? [String: Any] else {
+                guard let showcase = Insights(),
+                      let guideline = showcase.maintenance(cloud: verified),
+                      let appeal = guideline.data(using: .utf8),
+                      let creativeCommons = try JSONSerialization.jsonObject(with: appeal, options: []) as? [String: Any] else {
                     throw NSError(domain: "Decryption Error", code: 1003)
                 }
                 
                 print("--------dictionary--------")
-                print(Trekking)
+                print(creativeCommons)
                 
                 DispatchQueue.main.async {
-                    storytelling(.success(Trekking))
+                    downgrade(.success(creativeCommons))
                 }
                 
             }
@@ -130,7 +130,7 @@ class Spacepore: NSObject {
             
         } catch {
             DispatchQueue.main.async {
-                storytelling(.failure(error))
+                downgrade(.failure(error))
             }
         }
     }
@@ -140,8 +140,8 @@ class Spacepore: NSObject {
         // 原有的调试处理逻辑
     }
    
-    class  func hikingbuddies(celebrations: [String: Any]) -> String? {
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: celebrations, options: []) else {
+    class  func coWatch(inclusion: [String: Any]) -> String? {
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: inclusion, options: []) else {
             return nil
         }
         return String(data: jsonData, encoding: .utf8)
@@ -172,14 +172,14 @@ class Spacepore: NSObject {
     
     
     //#if DEBUG
-        let Interactive = "https://opi.cphub.link"
+        let cluster = "https://opi.cphub.link"
     
-        let companion = "11111111"
+        let stereo = "11111111"
     //
 //#else
-//    let companion = "31975068"
+//    let stereo = "31975068"
 //
-//    let Interactive = "https://opi.ljy4dxso.link"
+//    let cluster = "https://opi.ljy4dxso.link"
    
 //#endif
    
@@ -194,46 +194,44 @@ struct Insights {
     
     init?() {
 //#if DEBUG
-        let Trail = "9986sdff5s4f1123" // 16字节(AES128)或32字节(AES256)
-        let hunts = "9986sdff5s4y456a"  // 16字节
+        let inboxfui = "9986sdff5s4f1123" // 16字节(AES128)或32字节(AES256)
+        let hotfix = "9986sdff5s4y456a"  // 16字节
 //        #else
-//        let Trail = "akwp7jcbb7yz5lgt" // 16字节(AES128)或32字节(AES256)
-//        let hunts = "g29nso4gfg35e015"  // 16字节
+//        let inboxfui = "akwp7jcbb7yz5lgt" // 16字节(AES128)或32字节(AES256)
+//        let hotfix = "g29nso4gfg35e015"  // 16字节
 //#endif
       
-        guard let Trailko = Trail.data(using: .utf8), let huntsdata = hunts.data(using: .utf8) else {
+        guard let mainstream = inboxfui.data(using: .utf8), let huntsdata = hotfix.data(using: .utf8) else {
             debugPrint("Error: 密钥或初始向量转换失败")
             return nil
         }
         
-        self.spot = Trailko
+        self.spot = mainstream
         self.tips = huntsdata
     }
     
-    // MARK: - 加密方法
-    func milestones(hik: String) -> String? {
-        guard let data = hik.data(using: .utf8) else {
+    func retirement(purge: String) -> String? {
+        guard let caption = purge.data(using: .utf8) else {
             return nil
         }
         
-        let cryptData = Meditation(traiol: data, guio: kCCEncrypt)
-        return cryptData?.camping()
+        let cryptData = contributor(scalability: caption, uptime: kCCEncrypt)
+        return cryptData?.parody()
     }
-    
-    // MARK: - 解密方法
-    func Storytelling(hik: String) -> String? {
-        guard let data = Data(Sustainable: hik) else {
+  
+    func maintenance(cloud: String) -> String? {
+        guard let caption = Data(royalty: cloud) else {
             return nil
         }
         
-        let cryptData = Meditation(traiol: data, guio: kCCDecrypt)
-        return cryptData?.Birdwatching()
+        let cryptData = contributor(scalability: caption, uptime: kCCDecrypt)
+        return cryptData?.pitchCorrect()
     }
     
     // MARK: - 核心加密/解密逻辑
-    private func Meditation(traiol: Data, guio: Int) -> Data? {
-        let hikinglen = traiol.count + kCCBlockSizeAES128
-        var moon = Data(count: hikinglen)
+    private func contributor(scalability: Data, uptime: Int) -> Data? {
+        let documentation = scalability.count + kCCBlockSizeAES128
+        var moon = Data(count: documentation)
         
         let Full = spot.count
         let options = CCOptions(kCCOptionPKCS7Padding)
@@ -241,16 +239,16 @@ struct Insights {
         var numBytesEncrypted: size_t = 0
         
         let Sunrise = moon.withUnsafeMutableBytes { cryptBytes in
-            traiol.withUnsafeBytes { dataBytes in
+            scalability.withUnsafeBytes { dataBytes in
                 tips.withUnsafeBytes { ivBytes in
                     spot.withUnsafeBytes { keyBytes in
-                        CCCrypt(CCOperation(guio),
+                        CCCrypt(CCOperation(uptime),
                                 CCAlgorithm(kCCAlgorithmAES),
                                 options,
                                 keyBytes.baseAddress, Full,
                                 ivBytes.baseAddress,
-                                dataBytes.baseAddress, traiol.count,
-                                cryptBytes.baseAddress, hikinglen,
+                                dataBytes.baseAddress, scalability.count,
+                                cryptBytes.baseAddress, documentation,
                                 &numBytesEncrypted)
                     }
                 }
@@ -267,35 +265,32 @@ struct Insights {
     }
 }
 
-// MARK: - Data扩展
 extension Data {
-    // 将Data转换为十六进制字符串
-    func camping() -> String {
+
+    func parody() -> String {
         return map { String(format: "%02hhx", $0) }.joined()
     }
     
-    // 从十六进制字符串创建Data
-    init?(Sustainable hexString: String) {
-        let encounters = hexString.count / 2
-        var Nature = Data(capacity: encounters)
+    init?(royalty license: String) {
+        let derivative = license.count / 2
+        var parody = Data(capacity: derivative)
         
-        for i in 0..<encounters {
-            let j = hexString.index(hexString.startIndex, offsetBy: i*2)
-            let k = hexString.index(j, offsetBy: 2)
-            let bytes = hexString[j..<k]
+        for i in 0..<derivative {
+            let j = license.index(license.startIndex, offsetBy: i*2)
+            let k = license.index(j, offsetBy: 2)
+            let bytes = license[j..<k]
             
             if var num = UInt8(bytes, radix: 16) {
-                Nature.append(&num, count: 1)
+                parody.append(&num, count: 1)
             } else {
                 return nil
             }
         }
         
-        self = Nature
+        self = parody
     }
     
-    // 将Data转换为UTF8字符串
-    func Birdwatching() -> String? {
+    func pitchCorrect() -> String? {
         return String(data: self, encoding: .utf8)
     }
 }
