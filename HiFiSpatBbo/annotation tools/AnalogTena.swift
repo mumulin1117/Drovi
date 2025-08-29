@@ -25,7 +25,7 @@ class AnalogTena: NSObject {
         }
         
    
-        let newDeviceID = UIDevice.current.idchoentifierForVendor?.uuidString ?? UUID().uuidString
+        let newDeviceID = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
        
         saveToKeychain(value: newDeviceID, account: deviceIDAccount)
        
