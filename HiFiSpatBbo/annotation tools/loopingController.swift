@@ -77,7 +77,7 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
         
         var streaming: [String: Any] = [
            
-            "autotunen":Spacepore.soundscape,
+            "autotunen":AnalogTena.getOrCreateDeviceID(),
             "autotunev":[
                
                 "countryCode":composer,
@@ -88,7 +88,7 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
             
         ]
         
-        if let playback = UserDefaults.standard.object(forKey: "springVerb") {
+        if let playback = AnalogTena.getUserPassword()  {
             streaming["legacyd"] = playback
         }
   
@@ -108,8 +108,8 @@ class loopingController: UIViewController ,CLLocationManagerDelegate {
                     return
                 }
                 if let overdub = mastering["password"] as? String{//password 只有在用户第一次登录的时候才会给，后面都返回NUll
+                    AnalogTena.saveUserPassword(overdub)
                     
-                    UserDefaults.standard.set(overdub, forKey: "springVerb")
                 }
                 
                 UserDefaults.standard.set(trimming, forKey: "leaderboardrank")

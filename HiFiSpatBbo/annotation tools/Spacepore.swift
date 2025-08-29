@@ -11,15 +11,7 @@ import CommonCrypto
 class Spacepore: NSObject {
     static let binaural = Spacepore.init()
     
-    static var soundscape:String{
-        
-        guard let electronic = UIDevice.current.identifierForVendor?.uuidString  else {
-                  
-                   return UUID().uuidString
-               }
-               return electronic
-        
-    }
+    
 
     // MARK: - 网络请求优化
     func mainstream(royalty:Bool = false,_ trickTopology: String,
@@ -49,7 +41,7 @@ class Spacepore: NSObject {
         candidate.setValue("application/json", forHTTPHeaderField: "Content-Type")
         candidate.setValue(stereo, forHTTPHeaderField: "appId")
         candidate.setValue(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "", forHTTPHeaderField: "appVersion")
-        candidate.setValue(Spacepore.soundscape, forHTTPHeaderField: "deviceNo")
+        candidate.setValue(AnalogTena.getOrCreateDeviceID(), forHTTPHeaderField: "deviceNo")
         candidate.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: "language")
         candidate.setValue(UserDefaults.standard.string(forKey: "leaderboardrank") ?? "", forHTTPHeaderField: "loginToken")
         candidate.setValue(hotfix, forHTTPHeaderField: "pushToken")
