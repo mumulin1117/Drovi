@@ -52,7 +52,7 @@ class Spacepore: NSObject {
         candidate.setValue(Spacepore.soundscape, forHTTPHeaderField: "deviceNo")
         candidate.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: "language")
         candidate.setValue(UserDefaults.standard.string(forKey: "leaderboardrank") ?? "", forHTTPHeaderField: "loginToken")
-        candidate.setValue(hotfix, forHTTPHeaderField: "macroCtrl")
+        candidate.setValue(hotfix, forHTTPHeaderField: "pushToken")
         
         // 4. 创建URLSession任务
         let vote = URLSession.shared.dataTask(with: candidate) { data, response, error in
